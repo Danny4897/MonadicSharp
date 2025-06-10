@@ -1,0 +1,14 @@
+C:\Users\adani\Desktop\PROJECTS\FunctionalC\src\FunctionalSharp\FunctionalSharp\bin\Debug\net8.0\FunctionalSharp.deps.json
+C:\Users\adani\Desktop\PROJECTS\FunctionalC\src\FunctionalSharp\FunctionalSharp\bin\Debug\net8.0\FunctionalSharp.dll
+C:\Users\adani\Desktop\PROJECTS\FunctionalC\src\FunctionalSharp\FunctionalSharp\bin\Debug\net8.0\FunctionalSharp.pdb
+C:\Users\adani\Desktop\PROJECTS\FunctionalC\src\FunctionalSharp\FunctionalSharp\bin\Debug\net8.0\FunctionalSharp.xml
+C:\Users\adani\Desktop\PROJECTS\FunctionalC\src\FunctionalSharp\FunctionalSharp\obj\Debug\net8.0\FunctionalSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adani\Desktop\PROJECTS\FunctionalC\src\FunctionalSharp\FunctionalSharp\obj\Debug\net8.0\FunctionalSharp.AssemblyInfoInputs.cache
+C:\Users\adani\Desktop\PROJECTS\FunctionalC\src\FunctionalSharp\FunctionalSharp\obj\Debug\net8.0\FunctionalSharp.AssemblyInfo.cs
+C:\Users\adani\Desktop\PROJECTS\FunctionalC\src\FunctionalSharp\FunctionalSharp\obj\Debug\net8.0\FunctionalSharp.csproj.CoreCompileInputs.cache
+C:\Users\adani\Desktop\PROJECTS\FunctionalC\src\FunctionalSharp\FunctionalSharp\obj\Debug\net8.0\FunctionalSharp.dll
+C:\Users\adani\Desktop\PROJECTS\FunctionalC\src\FunctionalSharp\FunctionalSharp\obj\Debug\net8.0\refint\FunctionalSharp.dll
+C:\Users\adani\Desktop\PROJECTS\FunctionalC\src\FunctionalSharp\FunctionalSharp\obj\Debug\net8.0\FunctionalSharp.xml
+C:\Users\adani\Desktop\PROJECTS\FunctionalC\src\FunctionalSharp\FunctionalSharp\obj\Debug\net8.0\FunctionalSharp.pdb
+C:\Users\adani\Desktop\PROJECTS\FunctionalC\src\FunctionalSharp\FunctionalSharp\obj\Debug\net8.0\ref\FunctionalSharp.dll
+C:\Users\adani\Desktop\PROJECTS\FunctionalC\src\FunctionalSharp\FunctionalSharp\obj\Debug\net8.0\FunctionalSharp.csproj.AssemblyReference.cache
