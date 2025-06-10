@@ -1,0 +1,677 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FunctionalSharp</name>
+    </assembly>
+    <members>
+        <member name="T:MonadicSharp.Error">
+            <summary>
+            Represents an immutable error with code, message and optional details.
+            Supports composition of multiple errors.
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Error.Create(System.String,System.String,MonadicSharp.ErrorType)">
+            <summary>
+            Creates a simple error
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Error.Validation(System.String,System.String)">
+            <summary>
+            Creates a validation error
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Error.FromException(System.Exception,System.String)">
+            <summary>
+            Creates an error from exception
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Error.NotFound(System.String,System.String)">
+            <summary>
+            Creates a not found error
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Error.Forbidden(System.String)">
+            <summary>
+            Creates an access denied error
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Error.Conflict(System.String,System.String)">
+            <summary>
+            Creates a conflict error
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Error.Combine(MonadicSharp.Error[])">
+            <summary>
+            Combines multiple errors into one
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Error.WithMetadata(System.String,System.Object)">
+            <summary>
+            Adds metadata to the error
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Error.WithInnerError(MonadicSharp.Error)">
+            <summary>
+            Adds an inner error
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Error.IsOfType(MonadicSharp.ErrorType)">
+            <summary>
+            Checks if the error is of a specific type
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Error.HasCode(System.String)">
+            <summary>
+            Checks if the error has a specific code
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Error.GetAllErrors">
+            <summary>
+            Gets all errors (including sub-errors) as a flat list
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Error.ToJson">
+            <summary>
+            Serializes the error to JSON
+            </summary>
+        </member>
+        <member name="T:MonadicSharp.ErrorType">
+            <summary>
+            Supported error types
+            </summary>
+        </member>
+        <member name="T:MonadicSharp.Extensions.DbSetExtensions">
+            <summary>
+            Extension methods for DbSet to integrate with monadic types
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.AddAsync``1(Microsoft.EntityFrameworkCore.DbSet{``0},``0)">
+            <summary>
+            Adds an entity to the database and returns a Result
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.Update``1(Microsoft.EntityFrameworkCore.DbSet{``0},``0)">
+            <summary>
+            Updates an entity in the database and returns a Result
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.Remove``1(Microsoft.EntityFrameworkCore.DbSet{``0},``0)">
+            <summary>
+            Removes an entity from the database and returns a Result
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.FindAsync``1(Microsoft.EntityFrameworkCore.DbSet{``0},System.Object[])">
+            <summary>
+            Finds an entity by its primary key and returns an Option
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.FirstOrDefaultAsync``1(Microsoft.EntityFrameworkCore.DbSet{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Gets the first entity matching the predicate and returns an Option
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.WhereAsync``1(Microsoft.EntityFrameworkCore.DbSet{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Gets all entities matching the predicate and returns a Result
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.CountAsync``1(Microsoft.EntityFrameworkCore.DbSet{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Executes a query and returns a Result with the count
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.AnyAsync``1(Microsoft.EntityFrameworkCore.DbSet{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Checks if any entity matches the predicate and returns a Result
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.ToResultAsync``1(System.Threading.Tasks.Task{Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry{``0}})">
+            <summary>
+            Wraps the result of AddAsync in a Result monad
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.ToOptionAsync``1(System.Threading.Tasks.Task{``0})">
+            <summary>
+            Wraps the result of FindAsync in an Option monad
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.ToResultAsync``1(System.Threading.Tasks.Task{System.Collections.Generic.List{``0}})">
+            <summary>
+            Wraps the result of ToListAsync in a Result monad
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.ToResultAsync(System.Threading.Tasks.Task{System.Int32})">
+            <summary>
+            Wraps the result of CountAsync in a Result monad
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.ToResultAsync(System.Threading.Tasks.Task{System.Boolean})">
+            <summary>
+            Wraps the result of AnyAsync in a Result monad
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.BindAsync``1(System.Threading.Tasks.Task{Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry{``0}},System.Func{``0,System.Threading.Tasks.Task{MonadicSharp.Result{``0}}})">
+            <summary>
+            Enables monadic operations on the result of AddAsync
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.BindAsync``1(System.Threading.Tasks.Task{``0},System.Func{``0,System.Threading.Tasks.Task{MonadicSharp.Option{``0}}})">
+            <summary>
+            Enables monadic operations on the result of FindAsync
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.BindAsync``1(System.Threading.Tasks.Task{System.Collections.Generic.List{``0}},System.Func{System.Collections.Generic.List{``0},System.Threading.Tasks.Task{MonadicSharp.Result{System.Collections.Generic.List{``0}}}})">
+            <summary>
+            Enables monadic operations on the result of ToListAsync
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.BindAsync(System.Threading.Tasks.Task{System.Int32},System.Func{System.Int32,System.Threading.Tasks.Task{MonadicSharp.Result{System.Int32}}})">
+            <summary>
+            Enables monadic operations on the result of CountAsync
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbSetExtensions.BindAsync(System.Threading.Tasks.Task{System.Boolean},System.Func{System.Boolean,System.Threading.Tasks.Task{MonadicSharp.Result{System.Boolean}}})">
+            <summary>
+            Enables monadic operations on the result of AnyAsync
+            </summary>
+        </member>
+        <member name="T:MonadicSharp.Extensions.DbContextExtensions">
+            <summary>
+            Extension methods for DbContext to support functional operations
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.DbContextExtensions.SaveChangesAsync``1(MonadicSharp.Result{Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry{``0}})">
+            <summary>
+            Saves changes and returns a Result
+            </summary>
+        </member>
+        <member name="T:MonadicSharp.Extensions.ResultExtensions">
+            <summary>
+            Extension methods per Result per supportare operazioni funzionali avanzate
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.ResultExtensions.Sequence``1(System.Collections.Generic.IEnumerable{MonadicSharp.Result{``0}})">
+            <summary>
+            Trasforma una lista di Result in un Result di lista
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.ResultExtensions.Traverse``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,MonadicSharp.Result{``1}})">
+            <summary>
+            Applica una funzione a ciascun elemento di una lista, fermandosi al primo errore
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.ResultExtensions.Ensure``1(MonadicSharp.Result{``0},System.Func{``0,System.Boolean},MonadicSharp.Error)">
+            <summary>
+            Applica una funzione che può fallire solo se il Result è Success
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.ResultExtensions.Ensure``1(MonadicSharp.Result{``0},System.Func{``0,System.Boolean},System.String)">
+            <summary>
+            Applica una funzione che può fallire solo se il Result è Success
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.ResultExtensions.Combine``3(MonadicSharp.Result{``0},MonadicSharp.Result{``1},System.Func{``0,``1,``2})">
+            <summary>
+            Combina due Result usando una funzione
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.ResultExtensions.MapAsync``2(MonadicSharp.Result{``0},System.Func{``0,System.Threading.Tasks.Task{``1}})">
+            <summary>
+            Versione asincrona di Map
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.ResultExtensions.BindAsync``2(MonadicSharp.Result{``0},System.Func{``0,System.Threading.Tasks.Task{MonadicSharp.Result{``1}}})">
+            <summary>
+            Versione asincrona di Bind
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.ResultExtensions.OrElse``1(MonadicSharp.Result{``0},System.Func{MonadicSharp.Error,MonadicSharp.Result{``0}})">
+            <summary>
+            Applica una funzione di recupero in caso di fallimento
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.ResultExtensions.OrElse``1(MonadicSharp.Result{``0},MonadicSharp.Result{``0})">
+            <summary>
+            Restituisce un Result alternativo in caso di fallimento
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.ResultExtensions.AsTask``1(MonadicSharp.Result{``0})">
+            <summary>
+            Converte un Result&lt;T&gt; in Task&lt;Result&lt;T&gt;&gt;
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.ResultExtensions.Success``1(MonadicSharp.Result{``0},System.Func{``0,MonadicSharp.Result{``0}})">
+            <summary>
+            Handles success case in a Result
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.ResultExtensions.Failure``1(MonadicSharp.Result{``0},System.Func{MonadicSharp.Error,MonadicSharp.Result{``0}})">
+            <summary>
+            Handles failure case in a Result
+            </summary>
+        </member>
+        <member name="T:MonadicSharp.Extensions.OptionExtensions">
+            <summary>
+            Extension methods per Option
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.OptionExtensions.Filter``1(MonadicSharp.Option{``0},System.Func{``0,System.Boolean})">
+            <summary>
+            Filtra un Option basato su un predicato
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.OptionExtensions.Sequence``1(System.Collections.Generic.IEnumerable{MonadicSharp.Option{``0}})">
+            <summary>
+            Trasforma una lista di Option in un Option di lista (tutti devono avere valore)
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.OptionExtensions.Traverse``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,MonadicSharp.Option{``1}})">
+            <summary>
+            Applica una funzione a ciascun elemento di una lista
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.OptionExtensions.FirstOrNone``1(System.Collections.Generic.IEnumerable{MonadicSharp.Option{``0}})">
+            <summary>
+            Restituisce il primo Option che ha un valore
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.OptionExtensions.ToResult``1(MonadicSharp.Option{``0},MonadicSharp.Error)">
+            <summary>
+            Converte un Option in Result
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.OptionExtensions.ToResult``1(MonadicSharp.Option{``0},System.String)">
+            <summary>
+            Converte un Option in Result con messaggio di errore
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.OptionExtensions.MapAsync``2(MonadicSharp.Option{``0},System.Func{``0,System.Threading.Tasks.Task{``1}})">
+            <summary>
+            Versione asincrona di Map
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.OptionExtensions.BindAsync``2(MonadicSharp.Option{``0},System.Func{``0,System.Threading.Tasks.Task{MonadicSharp.Option{``1}}})">
+            <summary>
+            Versione asincrona di Bind
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.OptionExtensions.AsTask``1(MonadicSharp.Option{``0})" -->
+        <!-- Badly formed XML comment ignored for member "T:MonadicSharp.Extensions.TaskResultExtensions" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskResultExtensions.Map``2(System.Threading.Tasks.Task{MonadicSharp.Result{``0}},System.Func{``0,``1})" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskResultExtensions.Bind``2(System.Threading.Tasks.Task{MonadicSharp.Result{``0}},System.Func{``0,System.Threading.Tasks.Task{MonadicSharp.Result{``1}}})" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskResultExtensions.Do``1(System.Threading.Tasks.Task{MonadicSharp.Result{``0}},System.Func{``0,System.Threading.Tasks.Task})" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskResultExtensions.BindAsync``2(System.Threading.Tasks.Task{MonadicSharp.Result{``0}},System.Func{``0,System.Threading.Tasks.Task{MonadicSharp.Result{``1}}})" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskResultExtensions.MapAsync``2(System.Threading.Tasks.Task{MonadicSharp.Result{``0}},System.Func{``0,``1})" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskResultExtensions.MapAsync``2(System.Threading.Tasks.Task{MonadicSharp.Result{``0}},System.Func{``0,System.Threading.Tasks.Task{``1}})" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskResultExtensions.DoAsync``1(System.Threading.Tasks.Task{MonadicSharp.Result{``0}},System.Func{``0,System.Threading.Tasks.Task})" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskResultExtensions.GetValueOrDefault``1(System.Threading.Tasks.Task{MonadicSharp.Result{MonadicSharp.Option{``0}}})" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskResultExtensions.GetValueOrDefault``1(System.Threading.Tasks.Task{MonadicSharp.Result{MonadicSharp.Option{``0}}},MonadicSharp.Option{``0})" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskResultExtensions.Bind``1(System.Threading.Tasks.Task{MonadicSharp.Result{MonadicSharp.Result{``0}}})" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskResultExtensions.Bind(System.Threading.Tasks.Task{MonadicSharp.Result{MonadicSharp.Result{MonadicSharp.Unit}}})" -->
+        <!-- Badly formed XML comment ignored for member "T:MonadicSharp.Extensions.TaskOptionExtensions" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskOptionExtensions.Map``2(System.Threading.Tasks.Task{MonadicSharp.Option{``0}},System.Func{``0,``1})" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskOptionExtensions.Bind``2(System.Threading.Tasks.Task{MonadicSharp.Option{``0}},System.Func{``0,System.Threading.Tasks.Task{MonadicSharp.Option{``1}}})" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskOptionExtensions.Do``1(System.Threading.Tasks.Task{MonadicSharp.Option{``0}},System.Func{``0,System.Threading.Tasks.Task})" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskOptionExtensions.ToResult``1(System.Threading.Tasks.Task{MonadicSharp.Option{``0}},MonadicSharp.Error)" -->
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.TaskOptionExtensions.ToResult``1(System.Threading.Tasks.Task{MonadicSharp.Option{``0}},System.String)" -->
+        <member name="T:MonadicSharp.Extensions.PipeExtensions">
+            <summary>
+            Extension methods per operazioni di piping e composizione funzionale
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.PipeExtensions.Pipe``2(``0,System.Func{``0,``1})">
+            <summary>
+            Pipe operation - applica una funzione al valore
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.PipeExtensions.PipeAsync``2(``0,System.Func{``0,System.Threading.Tasks.Task{``1}})">
+            <summary>
+            Pipe operation asincrona
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.PipeExtensions.Pipe``2(System.Threading.Tasks.Task{``0},System.Func{``0,``1})">
+            <summary>
+            Pipe operation per Task
+            </summary>
+        </member>
+        <member name="T:MonadicSharp.Extensions.PipelineExtensions">
+            <summary>
+            Extension methods per pipeline composition avanzata
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:MonadicSharp.Extensions.PipelineExtensions.PipelineAsync``1(System.Threading.Tasks.Task{MonadicSharp.Result{``0}},System.Func{``0,System.Threading.Tasks.Task{MonadicSharp.Result{``0}}}[])" -->
+        <member name="M:MonadicSharp.Extensions.PipelineExtensions.PipelineAsync``2(System.Threading.Tasks.Task{MonadicSharp.Result{``0}},MonadicSharp.Extensions.IPipelineStep{``0,``1}[])">
+            <summary>
+            Compone una pipeline di operazioni con tipi diversi
+            Ogni operazione può trasformare il tipo
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.PipelineExtensions.Then``1(System.Threading.Tasks.Task{MonadicSharp.Result{``0}},System.Func{``0,System.Threading.Tasks.Task{MonadicSharp.Result{``0}}})">
+            <summary>
+            Pipeline fluente con sintassi più leggibile
+            Esempio: await InitialValue().Then(Step1).Then(Step2).Then(Step3).ExecuteAsync();
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.PipelineExtensions.ThenIf``1(System.Threading.Tasks.Task{MonadicSharp.Result{``0}},System.Func{``0,System.Boolean},System.Func{``0,System.Threading.Tasks.Task{MonadicSharp.Result{``0}}})">
+            <summary>
+            Pipeline con gestione condizionale
+            Applica l'operazione solo se la condizione è soddisfatta
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.PipelineExtensions.ThenWithRetry``1(System.Threading.Tasks.Task{MonadicSharp.Result{``0}},System.Func{``0,System.Threading.Tasks.Task{MonadicSharp.Result{``0}}},System.Int32,System.Nullable{System.TimeSpan})">
+            <summary>
+            Pipeline con retry automatico
+            </summary>
+        </member>
+        <member name="T:MonadicSharp.Extensions.PipelineBuilder`1">
+            <summary>
+            Builder pattern per pipeline fluenti
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.PipelineBuilder`1.Then(System.Func{`0,System.Threading.Tasks.Task{MonadicSharp.Result{`0}}})">
+            <summary>
+            Aggiunge un'operazione alla pipeline
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.PipelineBuilder`1.ThenIf(System.Func{`0,System.Boolean},System.Func{`0,System.Threading.Tasks.Task{MonadicSharp.Result{`0}}})">
+            <summary>
+            Aggiunge un'operazione condizionale
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.PipelineBuilder`1.Do(System.Func{`0,System.Threading.Tasks.Task})">
+            <summary>
+            Aggiunge side-effect (logging, etc.) senza modificare il valore
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Extensions.PipelineBuilder`1.ExecuteAsync">
+            <summary>
+            Esegue la pipeline
+            </summary>
+        </member>
+        <member name="T:MonadicSharp.Extensions.IPipelineStep`2">
+            <summary>
+            Interfaccia per step di pipeline con tipi diversi
+            </summary>
+        </member>
+        <member name="T:MonadicSharp.Extensions.PipelineStep`2">
+            <summary>
+            Implementazione base di un pipeline step
+            </summary>
+        </member>
+        <member name="T:MonadicSharp.Option`1">
+            <summary>
+            Represents an optional value that can be either present (Some) or absent (None).
+            Implements the Option/Maybe pattern to avoid null reference exceptions.
+            </summary>
+            <typeparam name="T">The type of the contained value</typeparam>
+        </member>
+        <member name="M:MonadicSharp.Option`1.Some(`0)">
+            <summary>
+            Creates a Some instance containing a value
+            </summary>
+        </member>
+        <member name="P:MonadicSharp.Option`1.None">
+            <summary>
+            Represents the absence of a value
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Option`1.From(`0)">
+            <summary>
+            Creates an Option from a nullable value
+            </summary>
+        </member>
+        <member name="P:MonadicSharp.Option`1.HasValue">
+            <summary>
+            Indicates if the Option contains a value
+            </summary>
+        </member>
+        <member name="P:MonadicSharp.Option`1.IsNone">
+            <summary>
+            Indicates if the Option is empty
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Option`1.Map``1(System.Func{`0,``0})">
+            <summary>
+            Applies a function to the value if present
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Option`1.Bind``1(System.Func{`0,MonadicSharp.Option{``0}})">
+            <summary>
+            Applies a function that returns an Option to the value if present (FlatMap/Bind)
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Option`1.GetValueOrDefault(`0)">
+            <summary>
+            Returns the value if present, otherwise the default value
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Option`1.GetValueOrDefault(System.Func{`0})">
+            <summary>
+            Returns the value if present, otherwise the result of the function
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Option`1.Do(System.Action{`0})">
+            <summary>
+            Executes an action if the value is present
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Option`1.Where(System.Func{`0,System.Boolean})">
+            <summary>
+            Filters the value based on a predicate
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Option`1.Match``1(System.Func{`0,``0},System.Func{``0})">
+            <summary>
+            Functional pattern matching
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Option`1.Match(System.Action{`0},System.Action)">
+            <summary>
+            Pattern matching with actions
+            </summary>
+        </member>
+        <member name="T:MonadicSharp.Option">
+            <summary>
+            Utility class for creating Option instances
+            </summary>
+        </member>
+        <member name="F:MonadicSharp.Option.None">
+            <summary>
+            Represents None for any type
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Option.Some``1(``0)">
+            <summary>
+            Creates a Some containing the specified value
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Option.From``1(``0)">
+            <summary>
+            Creates an Option from a nullable value
+            </summary>
+        </member>
+        <member name="T:MonadicSharp.Result`1">
+            <summary>
+            Represents the result of an operation that can be either Success or Failure.
+            Implements the Result pattern for Railway-Oriented Programming.
+            </summary>
+            <typeparam name="T">The type of the value in case of success</typeparam>
+        </member>
+        <member name="M:MonadicSharp.Result`1.Success(`0)">
+            <summary>
+            Creates a successful Result
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result`1.Failure(MonadicSharp.Error)">
+            <summary>
+            Creates a failed Result
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result`1.Failure(System.String)">
+            <summary>
+            Creates a failed Result with message
+            </summary>
+        </member>
+        <member name="P:MonadicSharp.Result`1.IsSuccess">
+            <summary>
+            Indicates if the result is successful
+            </summary>
+        </member>
+        <member name="P:MonadicSharp.Result`1.IsFailure">
+            <summary>
+            Indicates if the result is a failure
+            </summary>
+        </member>
+        <member name="P:MonadicSharp.Result`1.Value">
+            <summary>
+            The value in case of success
+            </summary>
+        </member>
+        <member name="P:MonadicSharp.Result`1.Error">
+            <summary>
+            The error in case of failure
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result`1.Map``1(System.Func{`0,``0})">
+            <summary>
+            Applies a function to the value if it's a success
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result`1.Bind``1(System.Func{`0,MonadicSharp.Result{``0}})">
+            <summary>
+            Applies a function that returns a Result to the value if it's a success (FlatMap/Bind)
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result`1.MapError(System.Func{MonadicSharp.Error,MonadicSharp.Error})">
+            <summary>
+            Applies a function to the error if it's a failure
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result`1.Do(System.Action{`0})">
+            <summary>
+            Executes an action if the result is a success
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result`1.DoError(System.Action{MonadicSharp.Error})">
+            <summary>
+            Executes an action if the result is a failure
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result`1.GetValueOrDefault(`0)">
+            <summary>
+            Returns the value if it's a success, otherwise the default value
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result`1.GetValueOrDefault(System.Func{`0})">
+            <summary>
+            Returns the value if it's a success, otherwise the result of the function
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result`1.Where(System.Func{`0,System.Boolean},MonadicSharp.Error)">
+            <summary>
+            Filters the value based on a predicate
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result`1.Where(System.Func{`0,System.Boolean},System.String)">
+            <summary>
+            Filters the value based on a predicate
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result`1.Match``1(System.Func{`0,``0},System.Func{MonadicSharp.Error,``0})">
+            <summary>
+            Functional pattern matching
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result`1.Match(System.Action{`0},System.Action{MonadicSharp.Error})">
+            <summary>
+            Pattern matching with actions
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result`1.ToOption">
+            <summary>
+            Converts to Option, losing error information
+            </summary>
+        </member>
+        <member name="T:MonadicSharp.Result">
+            <summary>
+            Utility class for creating Result instances
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result.Success``1(``0)">
+            <summary>
+            Creates a successful Result
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result.Failure``1(MonadicSharp.Error)">
+            <summary>
+            Creates a failed Result
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result.Failure``1(System.String)">
+            <summary>
+            Creates a failed Result with message
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result.Combine``1(MonadicSharp.Result{``0}[])">
+            <summary>
+            Combines multiple Results into one, failing if at least one fails
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result.Try``1(System.Func{``0})">
+            <summary>
+            Executes a function that can throw exceptions and wraps it in a Result
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Result.TryAsync``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Async version of Try
+            </summary>
+        </member>
+        <member name="T:MonadicSharp.Unit">
+            <summary>
+            Represents a type with only one value, used in functional programming
+            when we need to return something but there's no meaningful value
+            </summary>
+        </member>
+        <member name="F:MonadicSharp.Unit.Value">
+            <summary>
+            The single instance of Unit
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Unit.op_Implicit(System.ValueTuple)~MonadicSharp.Unit">
+            <summary>
+            Implicit conversion from Unit to void operations
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Unit.Equals(System.Object)">
+            <summary>
+            Returns true if obj is Unit
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Unit.Equals(MonadicSharp.Unit)">
+            <summary>
+            Returns true (all Unit instances are equal)
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Unit.GetHashCode">
+            <summary>
+            Returns 0 (all Unit instances have the same hash code)
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Unit.ToString">
+            <summary>
+            Returns "()"
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Unit.op_Equality(MonadicSharp.Unit,MonadicSharp.Unit)">
+            <summary>
+            Equality operator
+            </summary>
+        </member>
+        <member name="M:MonadicSharp.Unit.op_Inequality(MonadicSharp.Unit,MonadicSharp.Unit)">
+            <summary>
+            Inequality operator
+            </summary>
+        </member>
+    </members>
+</doc>
