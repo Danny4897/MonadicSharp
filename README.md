@@ -10,7 +10,7 @@
 
 > 🏆 **Created by [Danny4897](https://github.com/Danny4897) (aka [Klexir](https://www.nuget.org/profiles/Klexir) on NuGet)** | 📦 **Available on [NuGet.org](https://www.nuget.org/packages/MonadicSharp/)**
 
-A modern functional programming library for C# featuring **Result<T>**, **Option<T>**, **Railway-Oriented Programming**, and fluent pipeline composition. Build robust applications with elegant error handling and monadic patterns.
+A modern functional programming library for C# featuring **Result<T>**, **Option<T>**, **Railway-Oriented Programming**, and pipeline composition. Build robust applications with elegant error handling and monadic patterns.
 
 ## ✨ Features
 
