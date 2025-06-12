@@ -1,0 +1,15 @@
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\bin\Release\net8.0\MonadicSharp.deps.json
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\bin\Release\net8.0\MonadicSharp.dll
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\bin\Release\net8.0\MonadicSharp.pdb
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\bin\Release\net8.0\MonadicSharp.xml
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\obj\Release\net8.0\MonadicSharp.csproj.AssemblyReference.cache
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\obj\Release\net8.0\MonadicSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\obj\Release\net8.0\MonadicSharp.AssemblyInfoInputs.cache
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\obj\Release\net8.0\MonadicSharp.AssemblyInfo.cs
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\obj\Release\net8.0\MonadicSharp.csproj.CoreCompileInputs.cache
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\obj\Release\net8.0\MonadicSharp.sourcelink.json
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\obj\Release\net8.0\MonadicSharp.dll
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\obj\Release\net8.0\refint\MonadicSharp.dll
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\obj\Release\net8.0\MonadicSharp.xml
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\obj\Release\net8.0\MonadicSharp.pdb
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\obj\Release\net8.0\ref\MonadicSharp.dll

@@ -53,6 +53,46 @@ var user = GetUser()
     .GetValueOrDefault("no-email@example.com");
 ```
 
+## 🏗️ Project Templates
+
+Get started quickly with MonadicSharp using our pre-built project templates:
+
+### Installation
+
+```bash
+# Install MonadicSharp templates
+dotnet new install MonadicSharp.Templates
+```
+
+### Available Templates
+
+#### 🚀 Monadic API (`monadic-api`)
+A lightweight REST API template with functional programming patterns:
+
+```bash
+dotnet new monadic-api -n MyApi
+cd MyApi
+dotnet run
+```
+
+#### 🏛️ Monadic Clean Architecture (`monadic-clean`)  
+A comprehensive Clean Architecture template with CQRS and functional patterns:
+
+```bash
+dotnet new monadic-clean -n MyApp
+cd MyApp
+dotnet run
+```
+
+Both templates include:
+- ✅ Complete MonadicSharp integration
+- ✅ Railway-Oriented Programming patterns  
+- ✅ Result<T> error handling
+- ✅ Ready-to-run examples
+- ✅ Best practices implementation
+
+> 📖 **Learn more**: Check the [Templates README](src/MonadicSharp.Templates/README.md) for detailed documentation
+
 ## 🔧 Core Types
 
 ### Result<T>
@@ -204,7 +244,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 Made with ❤️ by [Danny4897](https://github.com/Danny4897)
 
-# FunctionalSharp
+# MonadicSharp
 
 Una libreria .NET che fornisce implementazioni di tipi monadici e funzionali per C#.
 

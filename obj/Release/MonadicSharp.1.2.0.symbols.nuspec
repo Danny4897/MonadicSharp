@@ -12,15 +12,16 @@
     <releaseNotes>v1.2.0: Changed namespace from FunctionalSharp to MonadicSharp to match NuGet package name
 v1.1.0: Added Either&lt;TLeft, TRight&gt; type for representing two alternative types</releaseNotes>
     <tags>functional-programming railway-oriented-programming result option maybe monad pipeline composition error-handling monadic sharp</tags>
-    <repository type="git" url="https://github.com/Danny4897/MonadicSharp" />
+    <repository type="git" url="https://github.com/Danny4897/MonadicSharp" commit="6b7c54caa051a0f9eecb0f3eaa6cbae6095ace47" />
     <dependencies>
       <group targetFramework="net8.0">
         <dependency id="Microsoft.EntityFrameworkCore" version="8.0.2" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Extensions.Hosting" version="8.0.1" exclude="Build,Analyzers" />
         <dependency id="System.Text.Json" version="8.0.5" exclude="Build,Analyzers" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="C:\Users\adani\Desktop\PROJECTS\FunctionalC\src\FunctionalSharp\FunctionalSharp\bin\Release\net8.0\FunctionalSharp.pdb" target="lib\net8.0\FunctionalSharp.pdb" />
+    <file src="C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\bin\Release\net8.0\MonadicSharp.pdb" target="lib\net8.0\MonadicSharp.pdb" />
   </files>
 </package>
