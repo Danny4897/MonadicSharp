@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonadicSharp", "MonadicShar
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{226F87F0-14A7-45E3-893C-240CA2505B63}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A1B2C3D4-E5F6-7890-ABCD-EF1234567890}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonadicSharp.Tests", "tests\MonadicSharp.Tests\MonadicSharp.Tests.csproj", "{B2C3D4E5-F6A7-8901-BCDE-F12345678901}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonadicSharp.Templates", "src\MonadicSharp.Templates\MonadicSharp.Templates.csproj", "{54B1C9B8-F53C-4071-9DCE-45EBE0D7C698}"
 EndProject
 Global
@@ -22,6 +26,10 @@ Global
 		{54B1C9B8-F53C-4071-9DCE-45EBE0D7C698}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54B1C9B8-F53C-4071-9DCE-45EBE0D7C698}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54B1C9B8-F53C-4071-9DCE-45EBE0D7C698}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2C3D4E5-F6A7-8901-BCDE-F12345678901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2C3D4E5-F6A7-8901-BCDE-F12345678901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2C3D4E5-F6A7-8901-BCDE-F12345678901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2C3D4E5-F6A7-8901-BCDE-F12345678901}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -31,5 +39,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{54B1C9B8-F53C-4071-9DCE-45EBE0D7C698} = {226F87F0-14A7-45E3-893C-240CA2505B63}
+		{B2C3D4E5-F6A7-8901-BCDE-F12345678901} = {A1B2C3D4-E5F6-7890-ABCD-EF1234567890}
 	EndGlobalSection
 EndGlobal
