@@ -6,7 +6,7 @@
     <RootNamespace>MonadicSharp</RootNamespace>
     
     <!-- NuGet Package Properties -->
-    <PackageId>MonadicSharp</PackageId>    <PackageVersion>1.3.0</PackageVersion>
+    <PackageId>MonadicSharp</PackageId>    <PackageVersion>1.4.0</PackageVersion>
     <Authors>Danny4897</Authors>
     <Description>A modern functional programming library for C# featuring Result&lt;T&gt;, Option&lt;T&gt;, Railway-Oriented Programming, and fluent pipeline composition. Build robust applications with elegant error handling and monadic patterns.</Description>
     <PackageTags>functional-programming;railway-oriented-programming;result;option;maybe;monad;pipeline;composition;error-handling;monadic;sharp</PackageTags>
@@ -19,7 +19,8 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageReadmeFile>README.md</PackageReadmeFile>
 
-        <PackageReleaseNotes>v1.3.0: Complete rebranding from FunctionalSharp to MonadicSharp - Templates, documentation, and package naming fully unified
+        <PackageReleaseNotes>v1.4.0: Added comprehensive xUnit test suite, GitHub Actions CI/CD, CHANGELOG, usage examples, and fixed package dependencies
+v1.3.0: Complete rebranding from FunctionalSharp to MonadicSharp - Templates, documentation, and package naming fully unified
 v1.2.0: Changed namespace from FunctionalSharp to MonadicSharp to match NuGet package name
 v1.1.0: Added Either&lt;TLeft, TRight&gt; type for representing two alternative types</PackageReleaseNotes>
     
@@ -38,7 +39,6 @@ v1.1.0: Added Either&lt;TLeft, TRight&gt; type for representing two alternative 
   </ItemGroup>
   
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
     <PackageReference Include="System.Text.Json" Version="8.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
   </ItemGroup>
