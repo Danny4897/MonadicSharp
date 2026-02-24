@@ -33,9 +33,14 @@ v1.1.0: Added Either&lt;TLeft, TRight&gt; type for representing two alternative 
   </ItemGroup>
   
   <ItemGroup>
-    <Compile Remove="src\**\*" />
-    <EmbeddedResource Remove="src\**\*" />
-    <None Remove="src\**\*" />
+    <Compile Remove="src/**/*" />
+    <Compile Remove="tests/**/*" />
+    <Compile Remove="docs/**/*" />
+    <EmbeddedResource Remove="src/**/*" />
+    <EmbeddedResource Remove="tests/**/*" />
+    <None Remove="src/**/*" />
+    <None Remove="tests/**/*" />
+    <None Remove="docs/**/*" />
   </ItemGroup>
   
   <ItemGroup>

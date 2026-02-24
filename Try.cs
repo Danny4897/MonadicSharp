@@ -1,4 +1,4 @@
-using MonadicSharp;
+namespace MonadicSharp;
 
 public static class Try
 {
