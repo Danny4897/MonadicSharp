@@ -18,8 +18,14 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
+      - name: Restore
+        run: dotnet restore tests/MonadicSharp.Tests/MonadicSharp.Tests.csproj
+
+      - name: Build
+        run: dotnet build tests/MonadicSharp.Tests/MonadicSharp.Tests.csproj --configuration Release --no-restore
+
       - name: Test
-        run: dotnet test tests/MonadicSharp.Tests/MonadicSharp.Tests.csproj --configuration Release --verbosity normal --logger "trx;LogFileName=test-results.trx"
+        run: dotnet test tests/MonadicSharp.Tests/MonadicSharp.Tests.csproj --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx"
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
