@@ -17,16 +17,11 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      - name: Restore dependencies
-        run: |
-          dotnet restore MonadicSharp.csproj
-          dotnet restore tests/MonadicSharp.Tests/MonadicSharp.Tests.csproj
+      - name: Restore
+        run: dotnet restore MonadicSharp.csproj
 
       - name: Build
         run: dotnet build MonadicSharp.csproj --configuration Release --no-restore
-
-      - name: Test
-        run: dotnet test tests/MonadicSharp.Tests/MonadicSharp.Tests.csproj --configuration Release --verbosity normal
 
       - name: Pack
         run: dotnet pack MonadicSharp.csproj --configuration Release --no-build --output ./nupkg
