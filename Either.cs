@@ -1,5 +1,3 @@
-using MonadicSharp;
-
 namespace MonadicSharp;
 
 public readonly struct Either<TLeft, TRight>
