@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MonadicSharp.csproj" />
+    <ProjectReference Include="../../MonadicSharp.csproj" />
   </ItemGroup>
 
 </Project>
