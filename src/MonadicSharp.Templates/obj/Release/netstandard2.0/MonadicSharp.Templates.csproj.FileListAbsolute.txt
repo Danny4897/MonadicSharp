@@ -1,0 +1,11 @@
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\src\MonadicSharp.Templates\bin\Release\netstandard2.0\MonadicSharp.Templates.deps.json
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\src\MonadicSharp.Templates\bin\Release\netstandard2.0\MonadicSharp.Templates.dll
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\src\MonadicSharp.Templates\bin\Release\netstandard2.0\MonadicSharp.Templates.pdb
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\src\MonadicSharp.Templates\obj\Release\netstandard2.0\MonadicSharp.Templates.csproj.AssemblyReference.cache
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\src\MonadicSharp.Templates\obj\Release\netstandard2.0\MonadicSharp.Templates.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\src\MonadicSharp.Templates\obj\Release\netstandard2.0\MonadicSharp.Templates.AssemblyInfoInputs.cache
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\src\MonadicSharp.Templates\obj\Release\netstandard2.0\MonadicSharp.Templates.AssemblyInfo.cs
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\src\MonadicSharp.Templates\obj\Release\netstandard2.0\MonadicSharp.Templates.csproj.CoreCompileInputs.cache
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\src\MonadicSharp.Templates\obj\Release\netstandard2.0\MonadicSharp.Templates.sourcelink.json
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\src\MonadicSharp.Templates\obj\Release\netstandard2.0\MonadicSharp.Templates.dll
+C:\Users\adani\Desktop\MonadicSharp\MonadicSharp\src\MonadicSharp.Templates\obj\Release\netstandard2.0\MonadicSharp.Templates.pdb
