@@ -1,0 +1,89 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\adani\\Desktop\\MonadicSharp\\MonadicSharp\\src\\MonadicSharp.Templates\\MonadicSharp.Templates.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\adani\\Desktop\\MonadicSharp\\MonadicSharp\\src\\MonadicSharp.Templates\\MonadicSharp.Templates.csproj": {
+      "version": "1.3.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\adani\\Desktop\\MonadicSharp\\MonadicSharp\\src\\MonadicSharp.Templates\\MonadicSharp.Templates.csproj",
+        "projectName": "MonadicSharp.Templates",
+        "projectPath": "C:\\Users\\adani\\Desktop\\MonadicSharp\\MonadicSharp\\src\\MonadicSharp.Templates\\MonadicSharp.Templates.csproj",
+        "packagesPath": "C:\\Users\\adani\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\adani\\Desktop\\MonadicSharp\\MonadicSharp\\src\\MonadicSharp.Templates\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\adani\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "c:\\Users\\adani\\Desktop\\PROJECTS\\FunctionalC\\src\\FunctionalSharp\\FunctionalSharp\\bin\\Release": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "noWarn": [
+            "NU5128"
+          ],
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[8.1.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.0-preview.5.25277.114, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.Extensions.Logging": {
+              "target": "Package",
+              "version": "[10.0.0-preview.5.25277.114, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
