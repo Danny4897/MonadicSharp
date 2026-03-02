@@ -218,4 +218,4 @@ Issues and pull requests are welcome. See [CHANGELOG](CHANGELOG.md) for version 
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE). 
