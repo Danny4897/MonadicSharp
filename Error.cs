@@ -145,6 +145,12 @@ public sealed record Error
         PropertyNamingPolicy = JsonNamingPolicy.CamelCase
     });
 
+    /// <summary>
+    /// Converts this error to a <see cref="MonadicException"/> for interop with
+    /// exception-based APIs (e.g. Application Insights, legacy middleware).
+    /// </summary>
+    public MonadicException ToException() => new(this);
+
     public override string ToString()
     {
         var result = $"[{Type}] {Code}: {Message}";

@@ -87,6 +87,20 @@ public static class ResultExtensions
         result.IsSuccess ? result : alternative;
 
     /// <summary>
+    /// Separa una collezione di Result in successi e fallimenti.
+    /// Utile per batch processing (es. Service Bus, bulk operations).
+    /// </summary>
+    public static (IEnumerable<T> Successes, IEnumerable<Error> Failures) Partition<T>(
+        this IEnumerable<Result<T>> results)
+    {
+        var list = results.ToList();
+        return (
+            list.Where(r => r.IsSuccess).Select(r => r.Value),
+            list.Where(r => r.IsFailure).Select(r => r.Error)
+        );
+    }
+
+    /// <summary>
     /// Converte un Result&lt;T&gt; in Task&lt;Result&lt;T&gt;&gt;
     /// </summary>
     public static Task<Result<T>> AsTask<T>(this Result<T> result) =>

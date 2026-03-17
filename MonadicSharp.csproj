@@ -36,11 +36,14 @@ v1.1.0: Added Either&lt;TLeft, TRight&gt; type for representing two alternative 
     <Compile Remove="src/**/*" />
     <Compile Remove="tests/**/*" />
     <Compile Remove="docs/**/*" />
+    <Compile Remove="RAG_Assistant/**/*" />
     <EmbeddedResource Remove="src/**/*" />
     <EmbeddedResource Remove="tests/**/*" />
+    <EmbeddedResource Remove="RAG_Assistant/**/*" />
     <None Remove="src/**/*" />
     <None Remove="tests/**/*" />
     <None Remove="docs/**/*" />
+    <None Remove="RAG_Assistant/**/*" />
   </ItemGroup>
   
   <ItemGroup>
