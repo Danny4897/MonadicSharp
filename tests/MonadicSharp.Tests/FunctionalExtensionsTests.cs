@@ -126,6 +126,41 @@ public class FunctionalExtensionsTests
         result.Value.Should().Be(5);
     }
 
+    [Fact]
+    public void Partition_separates_successes_and_failures()
+    {
+        var results = new[]
+        {
+            Result<int>.Success(1),
+            Result<int>.Failure("err-a"),
+            Result<int>.Success(3),
+            Result<int>.Failure("err-b")
+        };
+
+        var (successes, failures) = results.Partition();
+
+        successes.Should().BeEquivalentTo([1, 3]);
+        failures.Select(e => e.Message).Should().BeEquivalentTo(["err-a", "err-b"]);
+    }
+
+    [Fact]
+    public void Partition_returns_all_successes_when_no_failures()
+    {
+        var results = new[] { Result<int>.Success(1), Result<int>.Success(2) };
+        var (successes, failures) = results.Partition();
+        successes.Should().HaveCount(2);
+        failures.Should().BeEmpty();
+    }
+
+    [Fact]
+    public void Partition_returns_all_failures_when_no_successes()
+    {
+        var results = new[] { Result<int>.Failure("a"), Result<int>.Failure("b") };
+        var (successes, failures) = results.Partition();
+        successes.Should().BeEmpty();
+        failures.Should().HaveCount(2);
+    }
+
     // ── OptionExtensions ─────────────────────────────────────────────────────
 
     [Fact]
