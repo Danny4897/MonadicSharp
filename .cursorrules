@@ -1,0 +1,188 @@
+# MonadicSharp — Cursor Rules
+# Railway-Oriented Programming for C# · github.com/Danny4897/MonadicSharp
+#
+# These rules teach Cursor to generate clean, MonadicSharp-first C# code.
+# Drop this file in the root of any .NET 8+ project.
+
+## Core philosophy
+
+- Errors are VALUES, not exceptions. Never use try/catch for expected failures.
+- Every method that can fail returns `Result<T>`, not void or a nullable.
+- Compose operations with `.Bind()` and `.Map()`. Handle at the boundary with `.Match()`.
+- No null returns. Use `Option<T>` for "value that may not exist".
+
+---
+
+## ALWAYS do this
+
+### Return Result<T> from any fallible method
+```csharp
+// GOOD
+public Result<User> CreateUser(string name, string email)
+    => ValidateName(name)
+        .Bind(_ => ValidateEmail(email))
+        .Map(_ => new User(name, email));
+
+// BAD — never this
+public User CreateUser(string name, string email)
+{
+    if (string.IsNullOrEmpty(name)) throw new ArgumentException("...");
+    return new User(name, email);
+}
+```
+
+### Chain with Bind (fallible) and Map (infallible)
+```csharp
+// Bind: next step can also fail
+Result<Order> order = await ValidateRequest(req)
+    .Bind(r => _repo.FindProductAsync(r.ProductId))
+    .Bind(product => _repo.CreateOrderAsync(product, req.Quantity))
+    .Map(o => o with { CreatedAt = DateTime.UtcNow });
+
+// Map: pure transformation, cannot fail
+Result<OrderDto> dto = order.Map(o => new OrderDto(o));
+```
+
+### Always unwrap with Match at the boundary
+```csharp
+// Controller / API endpoint — the ONLY place to unwrap
+return result.Match(
+    onSuccess: value => Ok(value),
+    onFailure: error => error.Type switch
+    {
+        ErrorType.NotFound   => NotFound(error.Message),
+        ErrorType.Validation => BadRequest(new { error.Message, error.Field }),
+        ErrorType.Forbidden  => Forbid(),
+        ErrorType.Conflict   => Conflict(error.Message),
+        _                    => Problem(error.Message)
+    }
+);
+```
+
+### Use semantic Error factories
+```csharp
+// GOOD — semantic, typed, structured
+Error.Validation("Email is invalid", field: "email")
+Error.NotFound("User", identifier: userId.ToString())
+Error.Forbidden("Requires admin role")
+Error.Conflict("Username already taken", resource: "username")
+Error.Unexpected("Payment gateway unreachable", exception)
+
+// BAD — never this
+throw new ArgumentException("Email is invalid");
+throw new KeyNotFoundException("User not found");
+return null;
+```
+
+### Use Option<T> instead of nulls
+```csharp
+// GOOD
+Option<User> user = _cache.TryGet(id);
+string name = user.Map(u => u.Name).GetValueOrDefault("Anonymous");
+
+// BAD
+User? user = _cache.TryGet(id);
+string name = user?.Name ?? "Anonymous";
+```
+
+### Wrap external/legacy code with Result.Try
+```csharp
+// GOOD — wraps exception-throwing code safely
+Result<string> content = Result.Try(() => File.ReadAllText(path));
+Result<int>    parsed  = Result.Try(() => int.Parse(input));
+
+// Async version
+Result<string> response = await Result.TryAsync(() => httpClient.GetStringAsync(url));
+```
+
+### Collect ALL validation errors with Sequence
+```csharp
+// GOOD — reports all errors at once
+var result = new[]
+{
+    ValidateName(request.Name),
+    ValidateEmail(request.Email),
+    ValidateAge(request.Age)
+}.Sequence();
+```
+
+---
+
+## For AI agent / LLM code — use MonadicSharp.AI
+
+Install: `dotnet add package MonadicSharp.AI`
+
+### Use AiError for LLM failures — never catch HttpRequestException
+```csharp
+// GOOD
+if (response.StatusCode == 429)
+    return AiError.RateLimit(retryAfter: TimeSpan.FromSeconds(30));
+
+if (response.StatusCode == 503)
+    return AiError.ModelUnavailable(model: "gpt-4o", httpStatusCode: 503);
+
+// BAD
+throw new HttpRequestException("Rate limited");
+```
+
+### Use WithRetry for resilient LLM calls
+```csharp
+// Exponential backoff — only retries retriable errors (rate limit, timeout, unavailable)
+Result<string> result = await Result.TryAsync(() => llm.CompleteAsync(prompt))
+    .WithRetry(maxAttempts: 3, initialDelay: TimeSpan.FromSeconds(2));
+```
+
+### Use AgentResult for multi-step AI pipelines
+```csharp
+AgentResult<string> result = await AgentResult
+    .StartTrace("DocumentProcessor", input)
+    .Step("Retrieve", ctx => _db.SearchAsync(ctx))
+    .Step("Generate", ctx => _llm.CompleteAsync(ctx))
+    .Step("Validate", ctx => ValidateOutput(ctx))
+    .ExecuteAsync();
+```
+
+### Self-healing JSON output with MonadicSharp.Recovery
+```csharp
+using MonadicSharp.Recovery;
+using MonadicSharp.AI.Extensions;
+
+var result = await _llm.CompleteAsync(prompt)
+    .StartFixBranchAsync(
+        when:     ErrorPredicates.HasCode(AiError.InvalidOutputCode),
+        recovery: (err, attempt) => _llm.RepairJsonAsync(err, attempt),
+        maxAttempts: 2);
+```
+
+---
+
+## NEVER do these things
+
+```
+❌ throw new Exception(...)           → return Error.Create(...)
+❌ return null                        → return Option<T>.None or Result.Failure(...)
+❌ catch (Exception ex) { ... }       → use Result.Try(() => ...) 
+❌ if (result == null) ...            → use .Match() or .Map()
+❌ .Value without checking IsSuccess  → always use .Match() or .GetValueOrDefault()
+❌ Task<User?> for async fallible ops → Task<Result<User>>
+❌ throw in a service/domain method   → return Result<T>.Failure(Error....)
+```
+
+---
+
+## Package reference
+
+| Scenario | Package |
+|---|---|
+| Core ROP (`Result<T>`, `Option<T>`) | `MonadicSharp` |
+| LLM/AI errors, retry, agent tracing | `MonadicSharp.AI` |
+| Self-healing pipelines (Amber track) | `MonadicSharp.Recovery` |
+| Multi-agent orchestration | `MonadicSharp.Agents` |
+| Azure services (CosmosDB, Blob, Bus) | `MonadicSharp.Azure` |
+| HTTP client with retry | `MonadicSharp.Http` |
+| EF Core repository + Unit of Work | `MonadicSharp.Persistence` |
+| OpenTelemetry tracing for agents | `MonadicSharp.Telemetry` |
+| Everything at once | `MonadicSharp.Framework` |
+
+Full docs: https://github.com/Danny4897/MonadicSharp
+NuGet: https://www.nuget.org/profiles/Klexir
