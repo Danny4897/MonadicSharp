@@ -5,7 +5,7 @@
 [![CI](https://github.com/Danny4897/MonadicSharp/actions/workflows/ci.yml/badge.svg)](https://github.com/Danny4897/MonadicSharp/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-8.0-purple.svg)](https://dotnet.microsoft.com/)
-[![dev.to article](https://img.shields.io/badge/dev.to-article-black.svg)](https://dev.to/daniele_frau/railway-oriented-programming-in-c-without-languageext-2lfp)
+[![dev.to article](https://img.shields.io/badge/dev.to-article-black.svg)](https://dev.to/daniele_frau/railway-oriented-programming-in-c-without-languageext-4noe)
 
 Railway-Oriented Programming for C#. Replace exception-driven control flow with composable, explicit error handling — without LanguageExt.
 
