@@ -1,0 +1,27 @@
+{
+  "name": "monadicsharp-video-template",
+  "version": "1.0.0",
+  "description": "Remotion template for MonadicSharp YouTube videos",
+  "scripts": {
+    "preview": "remotion preview src/index.ts",
+    "render":  "remotion render src/index.ts MonadicSharpVideo",
+    "studio":  "remotion studio src/index.ts"
+  },
+  "dependencies": {
+    "@remotion/media-utils": "^4.0.0",
+    "remotion":              "^4.0.0",
+    "react":                 "^18.2.0",
+    "react-dom":             "^18.2.0",
+    "shiki":                 "^1.0.0",
+    "shiki-magic-move":      "^0.4.0"
+  },
+  "devDependencies": {
+    "@remotion/cli":        "^4.0.0",
+    "@types/react":         "^18.2.0",
+    "@types/react-dom":     "^18.2.0",
+    "typescript":           "^5.0.0"
+  },
+  "remotion": {
+    "entryPoint": "src/index.ts"
+  }
+}
