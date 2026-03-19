@@ -1,0 +1,6 @@
+{
+  "skills": {
+    "autoLoad": true,
+    "paths": [".claude/skills"]
+  }
+}
