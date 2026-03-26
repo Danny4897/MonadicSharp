@@ -121,7 +121,7 @@ MonadicSharp is a family of focused packages — use only what you need.
 
 <div class="ecosystem-grid">
 
-<a class="eco-card" href="https://danny4897.github.io/MonadicSharp.Framework/">
+<a class="eco-card" href="/MonadicSharp/framework/">
   <div class="eco-card-header" style="background:#4f46e5">Framework</div>
   <div class="eco-card-body">
     <strong>MonadicSharp.Framework</strong>
@@ -130,7 +130,7 @@ MonadicSharp is a family of focused packages — use only what you need.
   </div>
 </a>
 
-<a class="eco-card" href="https://danny4897.github.io/MonadicSharp.AI/">
+<a class="eco-card" href="/MonadicSharp/ai/">
   <div class="eco-card-header" style="background:#2563eb">AI</div>
   <div class="eco-card-body">
     <strong>MonadicSharp.AI</strong>
@@ -139,7 +139,7 @@ MonadicSharp is a family of focused packages — use only what you need.
   </div>
 </a>
 
-<a class="eco-card" href="https://danny4897.github.io/MonadicSharp.Recovery/">
+<a class="eco-card" href="/MonadicSharp/recovery/">
   <div class="eco-card-header" style="background:#d97706">Recovery</div>
   <div class="eco-card-body">
     <strong>MonadicSharp.Recovery</strong>
@@ -148,7 +148,7 @@ MonadicSharp is a family of focused packages — use only what you need.
   </div>
 </a>
 
-<a class="eco-card" href="https://danny4897.github.io/MonadicSharp.Azure/">
+<a class="eco-card" href="/MonadicSharp/azure/">
   <div class="eco-card-header" style="background:#0078d4">Azure</div>
   <div class="eco-card-body">
     <strong>MonadicSharp.Azure</strong>
@@ -157,7 +157,7 @@ MonadicSharp is a family of focused packages — use only what you need.
   </div>
 </a>
 
-<a class="eco-card" href="https://danny4897.github.io/MonadicSharp.DI/">
+<a class="eco-card" href="/MonadicSharp/di/">
   <div class="eco-card-header" style="background:#0d9488">DI</div>
   <div class="eco-card-body">
     <strong>MonadicSharp.DI</strong>
@@ -166,7 +166,7 @@ MonadicSharp is a family of focused packages — use only what you need.
   </div>
 </a>
 
-<a class="eco-card" href="https://danny4897.github.io/MonadicLeaf/">
+<a class="eco-card" href="/MonadicSharp/leaf/">
   <div class="eco-card-header" style="background:#16a34a">Leaf</div>
   <div class="eco-card-body">
     <strong>MonadicLeaf</strong>
@@ -175,7 +175,7 @@ MonadicSharp is a family of focused packages — use only what you need.
   </div>
 </a>
 
-<a class="eco-card" href="https://danny4897.github.io/MonadicSharp-OpenCode/">
+<a class="eco-card" href="/MonadicSharp/opencode/">
   <div class="eco-card-header" style="background:#0369a1">OpenCode</div>
   <div class="eco-card-body">
     <strong>MonadicSharp × OpenCode</strong>
@@ -184,7 +184,7 @@ MonadicSharp is a family of focused packages — use only what you need.
   </div>
 </a>
 
-<a class="eco-card" href="https://danny4897.github.io/AgentScope/">
+<a class="eco-card" href="/MonadicSharp/agentscope/">
   <div class="eco-card-header" style="background:#ea580c">AgentScope</div>
   <div class="eco-card-body">
     <strong>AgentScope</strong>
@@ -195,6 +195,6 @@ MonadicSharp is a family of focused packages — use only what you need.
 
 </div>
 
-→ [Full ecosystem docs](/ecosystem/) · [Templates](/templates)
+→ [Ecosystem](/ecosystem/) · [Templates](/templates) · [Try it ▶](/try-it)
 
 </div>

@@ -526,28 +526,37 @@ HTTP 404 Not Found
 </style>
 
 <script>
-(function () {
-  function activate(tabId) {
-    document.querySelectorAll('.try-tab').forEach(t => t.classList.remove('active'));
-    document.querySelectorAll('.try-panel').forEach(p => p.classList.remove('active'));
-    const btn = document.querySelector(`.try-tab[data-tab="${tabId}"]`);
-    const panel = document.getElementById('tab-' + tabId);
-    if (btn)   btn.classList.add('active');
-    if (panel) panel.classList.add('active');
-    // hide output when switching tab
-    document.querySelectorAll('.try-output').forEach(o => o.classList.remove('visible'));
-  }
+if (typeof window !== 'undefined') {
+  (function init() {
+    function activate(tabId) {
+      document.querySelectorAll('.try-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.try-panel').forEach(p => p.classList.remove('active'));
+      const btn = document.querySelector(`.try-tab[data-tab="${tabId}"]`);
+      const panel = document.getElementById('tab-' + tabId);
+      if (btn)   btn.classList.add('active');
+      if (panel) panel.classList.add('active');
+      document.querySelectorAll('.try-output').forEach(o => o.classList.remove('visible'));
+    }
 
-  document.querySelectorAll('.try-tab').forEach(btn => {
-    btn.addEventListener('click', () => activate(btn.dataset.tab));
-  });
+    function setup() {
+      document.querySelectorAll('.try-tab').forEach(btn => {
+        btn.addEventListener('click', () => activate(btn.dataset.tab));
+      });
+    }
 
-  window.runExample = function (id) {
-    const out = document.getElementById('output-' + id);
-    if (!out) return;
-    out.classList.toggle('visible');
-  };
-})();
+    window.runExample = function (id) {
+      const out = document.getElementById('output-' + id);
+      if (!out) return;
+      out.classList.toggle('visible');
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setup);
+    } else {
+      setup();
+    }
+  })();
+}
 </script>
 
 ---
