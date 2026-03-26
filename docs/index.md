@@ -52,6 +52,14 @@ features:
 
 <div class="vp-doc" style="max-width:960px;margin:0 auto;padding:4rem 1.5rem">
 
+<div class="nuget-badges">
+  <a href="https://www.nuget.org/packages/MonadicSharp/" target="_blank"><img src="https://img.shields.io/nuget/v/MonadicSharp.svg" alt="NuGet Version" /></a>
+  <a href="https://www.nuget.org/packages/MonadicSharp/" target="_blank"><img src="https://img.shields.io/nuget/dt/MonadicSharp.svg" alt="NuGet Downloads" /></a>
+  <a href="https://github.com/Danny4897/MonadicSharp/actions/workflows/ci.yml" target="_blank"><img src="https://github.com/Danny4897/MonadicSharp/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="MIT License" />
+  <img src="https://img.shields.io/badge/.NET-8.0-purple.svg" alt=".NET 8" />
+</div>
+
 ## Before vs After
 
 The same operation — one with exceptions, one with Railway-Oriented Programming:
@@ -123,6 +131,6 @@ MonadicSharp is a family of focused packages — use only what you need.
 | [`MonadicSharp.Telemetry`](https://www.nuget.org/packages/MonadicSharp.Telemetry/) | OpenTelemetry tracing for agent pipelines | `dotnet add package MonadicSharp.Telemetry` |
 | [`MonadicSharp.Framework`](https://www.nuget.org/packages/MonadicSharp.Framework/) | Everything in one meta-package | `dotnet add package MonadicSharp.Framework` |
 
-→ [Full ecosystem docs](/ecosystem/)
+→ [Full ecosystem docs](/ecosystem/) · [MonadicSharp.AI](/ai) · [Templates](/templates)
 
 </div>

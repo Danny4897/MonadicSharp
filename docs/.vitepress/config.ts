@@ -44,9 +44,10 @@ export default defineConfig({
         text: 'Ecosystem',
         items: [
           { text: 'Overview', link: '/ecosystem/' },
+          { text: 'MonadicSharp.AI', link: '/ai' },
           { text: 'Templates', link: '/templates' },
         ],
-        activeMatch: '/ecosystem/|/templates'
+        activeMatch: '/ecosystem/|/templates|/ai'
       },
       {
         text: 'v1.5',
@@ -84,6 +85,7 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'Overview', link: '/ecosystem/' },
+          { text: 'MonadicSharp.AI', link: '/ai' },
           { text: 'Templates', link: '/templates' },
         ]
       },

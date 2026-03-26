@@ -1,0 +1,242 @@
+/* ── Brand colours ── */
+:root {
+  --vp-c-brand-1: #7c3aed;
+  --vp-c-brand-2: #6d28d9;
+  --vp-c-brand-3: #5b21b6;
+  --vp-c-brand-soft: rgba(124, 58, 237, 0.12);
+
+  --vp-button-brand-bg: var(--vp-c-brand-1);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-active-bg: var(--vp-c-brand-3);
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-hover-border: transparent;
+
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 50%, #818cf8 100%);
+
+  --vp-home-hero-image-background-image: radial-gradient(
+    ellipse at center,
+    rgba(124, 58, 237, 0.2) 0%,
+    transparent 65%
+  );
+  --vp-home-hero-image-filter: blur(40px);
+}
+
+/* dark mode adjustments */
+.dark {
+  --vp-c-bg: #0d1117;
+  --vp-c-bg-soft: #161b22;
+  --vp-c-bg-mute: #1c2128;
+  --vp-c-border: #30363d;
+  --vp-c-divider: #21262d;
+}
+
+/* ── Home page — before/after comparison ── */
+.home-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .home-comparison {
+    grid-template-columns: 1fr;
+  }
+}
+
+.home-comparison > div {
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--vp-c-divider);
+}
+
+.home-comparison > div:first-child {
+  border-top: 2px solid #f85149;
+}
+
+.home-comparison > div:last-child {
+  border-top: 2px solid #3fb950;
+}
+
+.home-comparison > div .vp-code-group,
+.home-comparison > div div[class*="language-"] {
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* ── Hero image — logo glow ── */
+.VPHero .image-container {
+  filter: drop-shadow(0 0 32px rgba(124, 58, 237, 0.35));
+}
+
+/* ── Feature cards — hover lift ── */
+.VPFeature {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+}
+
+.VPFeature:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 28px rgba(124, 58, 237, 0.12) !important;
+  border-color: rgba(124, 58, 237, 0.35) !important;
+}
+
+/* ── Nav — active link colour ── */
+.VPNavBarMenuLink.active,
+.VPNavBarMenuLink:hover {
+  color: var(--vp-c-brand-1) !important;
+}
+
+/* ── Sidebar — active item ── */
+.VPSidebarItem.is-active .text {
+  color: var(--vp-c-brand-1) !important;
+}
+
+/* ── Code blocks ── */
+.vp-doc div[class*="language-"] {
+  border-radius: 10px !important;
+  border: 1px solid var(--vp-c-divider);
+}
+
+/* ── Inline code ── */
+.vp-doc :not(pre) > code {
+  background: var(--vp-c-brand-soft) !important;
+  color: var(--vp-c-brand-1) !important;
+  border: 1px solid rgba(124, 58, 237, 0.18);
+  border-radius: 4px;
+  padding: 0.1em 0.35em;
+  font-size: 0.875em;
+}
+
+.dark .vp-doc :not(pre) > code {
+  color: #c4b5fd !important;
+  background: rgba(124, 58, 237, 0.12) !important;
+}
+
+/* ── Tables ── */
+.vp-doc table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.vp-doc table thead tr {
+  background: var(--vp-c-bg-soft);
+}
+
+.vp-doc table th {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--vp-c-text-2);
+}
+
+.vp-doc table tr:hover {
+  background: rgba(124, 58, 237, 0.04);
+}
+
+/* ── Tip/warning callouts ── */
+.vp-doc .tip {
+  --vp-custom-block-tip-border: var(--vp-c-brand-1);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
+  --vp-custom-block-tip-text: var(--vp-c-text-1);
+}
+
+/* ── Home page ecosystem table — monospace install cmds ── */
+.vp-doc td:last-child code {
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* ── Outline headings ── */
+.VPDocOutlineItem.is-active .outline-link {
+  color: var(--vp-c-brand-1) !important;
+}
+
+/* ── Search highlight ── */
+mark {
+  background: var(--vp-c-brand-soft) !important;
+  color: var(--vp-c-brand-1) !important;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* ── Copy button ── */
+.vp-code-group .tabs > button.active,
+div[class*="language-"] button.copy:hover {
+  color: var(--vp-c-brand-1) !important;
+}
+
+/* ── Hero text ── */
+.VPHero .tagline {
+  font-size: 1.1rem;
+  max-width: 500px;
+}
+
+/* ── "NuGet badges" row in home ── */
+.nuget-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.nuget-badges img {
+  height: 20px;
+  border-radius: 3px;
+}
+
+/* ── Ecosystem package grid ── */
+.pkg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.pkg-card {
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.pkg-card:hover {
+  border-color: rgba(124, 58, 237, 0.35);
+  transform: translateY(-2px);
+}
+
+.pkg-card .pkg-name {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+  margin-bottom: 0.4rem;
+}
+
+.pkg-card .pkg-desc {
+  font-size: 0.85rem;
+  color: var(--vp-c-text-2);
+  margin-bottom: 0.85rem;
+  line-height: 1.5;
+}
+
+.pkg-card .pkg-install {
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.75rem;
+  color: var(--vp-c-text-3);
+  background: var(--vp-c-bg-mute);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 5px;
+  padding: 0.4rem 0.65rem;
+  cursor: pointer;
+  display: block;
+  transition: border-color 0.15s, color 0.15s;
+  user-select: all;
+}
+
+.pkg-card .pkg-install:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-text-1);
+}
