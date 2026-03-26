@@ -119,18 +119,82 @@ return result.Match(
 
 MonadicSharp is a family of focused packages — use only what you need.
 
-| Package | Description | Install |
-|---------|-------------|---------|
-| [`MonadicSharp`](https://www.nuget.org/packages/MonadicSharp/) | Core — `Result<T>`, `Option<T>`, `Error`, pipelines | `dotnet add package MonadicSharp` |
-| [`MonadicSharp.AI`](https://www.nuget.org/packages/MonadicSharp.AI/) | Typed LLM errors, retry with backoff, agent tracing | `dotnet add package MonadicSharp.AI` |
-| [`MonadicSharp.Recovery`](https://www.nuget.org/packages/MonadicSharp.Recovery/) | Self-healing pipelines — Amber track | `dotnet add package MonadicSharp.Recovery` |
-| [`MonadicSharp.Agents`](https://www.nuget.org/packages/MonadicSharp.Agents/) | Multi-agent orchestration, circuit breaker | `dotnet add package MonadicSharp.Agents` |
-| [`MonadicSharp.Http`](https://www.nuget.org/packages/MonadicSharp.Http/) | Result-aware HTTP client with typed retry | `dotnet add package MonadicSharp.Http` |
-| [`MonadicSharp.Persistence`](https://www.nuget.org/packages/MonadicSharp.Persistence/) | Result-aware repository + UoW (EF Core 8) | `dotnet add package MonadicSharp.Persistence` |
-| [`MonadicSharp.Security`](https://www.nuget.org/packages/MonadicSharp.Security/) | Prompt injection detection, secret masking | `dotnet add package MonadicSharp.Security` |
-| [`MonadicSharp.Telemetry`](https://www.nuget.org/packages/MonadicSharp.Telemetry/) | OpenTelemetry tracing for agent pipelines | `dotnet add package MonadicSharp.Telemetry` |
-| [`MonadicSharp.Framework`](https://www.nuget.org/packages/MonadicSharp.Framework/) | Everything in one meta-package | `dotnet add package MonadicSharp.Framework` |
+<div class="ecosystem-grid">
 
-→ [Full ecosystem docs](/ecosystem/) · [MonadicSharp.AI](/ai) · [Templates](/templates)
+<a class="eco-card" href="https://danny4897.github.io/MonadicSharp.Framework/">
+  <div class="eco-card-header" style="background:#4f46e5">Framework</div>
+  <div class="eco-card-body">
+    <strong>MonadicSharp.Framework</strong>
+    <p>Enterprise AI agent infrastructure — Agents, Security, Telemetry, Http, Persistence, Caching in one meta-package.</p>
+    <span class="eco-tag">meta-package</span>
+  </div>
+</a>
+
+<a class="eco-card" href="https://danny4897.github.io/MonadicSharp.AI/">
+  <div class="eco-card-header" style="background:#2563eb">AI</div>
+  <div class="eco-card-body">
+    <strong>MonadicSharp.AI</strong>
+    <p>Typed LLM errors, retry with backoff, agent pipeline tracing, structured output validation, streaming.</p>
+    <span class="eco-tag">nuget</span>
+  </div>
+</a>
+
+<a class="eco-card" href="https://danny4897.github.io/MonadicSharp.Recovery/">
+  <div class="eco-card-header" style="background:#d97706">Recovery</div>
+  <div class="eco-card-body">
+    <strong>MonadicSharp.Recovery</strong>
+    <p>Self-healing pipelines. RescueAsync and StartFixBranchAsync bring failed operations back to the green track.</p>
+    <span class="eco-tag">nuget</span>
+  </div>
+</a>
+
+<a class="eco-card" href="https://danny4897.github.io/MonadicSharp.Azure/">
+  <div class="eco-card-header" style="background:#0078d4">Azure</div>
+  <div class="eco-card-body">
+    <strong>MonadicSharp.Azure</strong>
+    <p>Railway-Oriented wrappers for CosmosDB, Service Bus, Blob, Key Vault, Azure OpenAI — every call returns Result&lt;T&gt;.</p>
+    <span class="eco-tag">nuget</span>
+  </div>
+</a>
+
+<a class="eco-card" href="https://danny4897.github.io/MonadicSharp.DI/">
+  <div class="eco-card-header" style="background:#0d9488">DI</div>
+  <div class="eco-card-body">
+    <strong>MonadicSharp.DI</strong>
+    <p>Lightweight functional mediator. CQRS aligned with Result&lt;T&gt; — handlers never throw, behaviors compose cleanly.</p>
+    <span class="eco-tag">nuget</span>
+  </div>
+</a>
+
+<a class="eco-card" href="https://danny4897.github.io/MonadicLeaf/">
+  <div class="eco-card-header" style="background:#16a34a">Leaf</div>
+  <div class="eco-card-body">
+    <strong>MonadicLeaf</strong>
+    <p>Roslyn analyzers that enforce green-code rules. Green Score 0–100 per project. Auto-migration for common violations.</p>
+    <span class="eco-tag wip">wip</span>
+  </div>
+</a>
+
+<a class="eco-card" href="https://danny4897.github.io/MonadicSharp-OpenCode/">
+  <div class="eco-card-header" style="background:#0369a1">OpenCode</div>
+  <div class="eco-card-body">
+    <strong>MonadicSharp × OpenCode</strong>
+    <p>Green-code analysis and auto-migration inside your OpenCode AI coding session. /forge-analyze, /green-check, /migrate.</p>
+    <span class="eco-tag">tooling</span>
+  </div>
+</a>
+
+<a class="eco-card" href="https://danny4897.github.io/AgentScope/">
+  <div class="eco-card-header" style="background:#ea580c">AgentScope</div>
+  <div class="eco-card-body">
+    <strong>AgentScope</strong>
+    <p>AI agent observability platform. Pipeline tracing, metrics dashboard, circuit breakers, alerts — native .NET.</p>
+    <span class="eco-tag wip">wip</span>
+  </div>
+</a>
+
+</div>
+
+→ [Full ecosystem docs](/ecosystem/) · [Templates](/templates)
 
 </div>

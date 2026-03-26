@@ -148,6 +148,84 @@
   white-space: nowrap;
 }
 
+/* ── Ecosystem cards grid ── */
+.ecosystem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.eco-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none !important;
+  color: inherit;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.eco-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+  border-color: transparent;
+  text-decoration: none !important;
+}
+
+.eco-card-header {
+  padding: 0.55rem 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.eco-card-body {
+  flex: 1;
+  padding: 1rem 1.1rem 1.1rem;
+  background: var(--vp-c-bg-soft);
+}
+
+.eco-card-body strong {
+  display: block;
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.82rem;
+  color: var(--vp-c-text-1);
+  margin-bottom: 0.4rem;
+}
+
+.eco-card-body p {
+  font-size: 0.83rem;
+  color: var(--vp-c-text-2);
+  line-height: 1.5;
+  margin: 0 0 0.6rem;
+}
+
+.eco-tag {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.15em 0.55em;
+  border-radius: 4px;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+}
+
+.eco-tag.wip {
+  background: rgba(234,179,8,0.12);
+  color: #ca8a04;
+}
+
+.dark .eco-tag.wip {
+  background: rgba(250,204,21,0.12);
+  color: #facc15;
+}
+
 /* ── Outline headings ── */
 .VPDocOutlineItem.is-active .outline-link {
   color: var(--vp-c-brand-1) !important;
