@@ -42,7 +42,7 @@ The method signature lies. Callers don't know what to expect. Test coverage for 
 
 ---
 
-## The Result<T> type
+## The Result\<T\> type
 
 `Result<T>` makes failure explicit in the type system:
 
