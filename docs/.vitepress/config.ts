@@ -26,8 +26,9 @@ export default defineConfig({
           { text: 'Getting Started', link: '/getting-started' },
           { text: 'Async Pipelines', link: '/pipelines' },
           { text: 'Why MonadicSharp', link: '/why' },
+          { text: 'Try it ▶', link: '/try-it' },
         ],
-        activeMatch: '/getting-started|/pipelines|/why'
+        activeMatch: '/getting-started|/pipelines|/why|/try-it'
       },
       {
         text: 'Core',
@@ -88,6 +89,7 @@ export default defineConfig({
           { text: 'Getting Started', link: '/getting-started' },
           { text: 'Async Pipelines', link: '/pipelines' },
           { text: 'Why MonadicSharp', link: '/why' },
+          { text: 'Try it ▶', link: '/try-it' },
         ]
       },
       {
