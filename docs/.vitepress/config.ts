@@ -43,11 +43,32 @@ export default defineConfig({
       {
         text: 'Ecosystem',
         items: [
-          { text: 'Overview', link: '/ecosystem/' },
-          { text: 'MonadicSharp.AI', link: '/ai' },
-          { text: 'Templates', link: '/templates' },
+          {
+            items: [
+              { text: 'Ecosystem Overview', link: '/ecosystem/' },
+              { text: 'Templates', link: '/templates' },
+            ],
+          },
+          {
+            text: 'Packages',
+            items: [
+              { text: 'MonadicSharp.Framework', link: 'https://danny4897.github.io/MonadicSharp.Framework/' },
+              { text: 'MonadicSharp.AI', link: 'https://danny4897.github.io/MonadicSharp.AI/' },
+              { text: 'MonadicSharp.Recovery', link: 'https://danny4897.github.io/MonadicSharp.Recovery/' },
+              { text: 'MonadicSharp.Azure', link: 'https://danny4897.github.io/MonadicSharp.Azure/' },
+              { text: 'MonadicSharp.DI', link: 'https://danny4897.github.io/MonadicSharp.DI/' },
+            ],
+          },
+          {
+            text: 'Tooling',
+            items: [
+              { text: 'MonadicLeaf', link: 'https://danny4897.github.io/MonadicLeaf/' },
+              { text: 'MonadicSharp × OpenCode', link: 'https://danny4897.github.io/MonadicSharp-OpenCode/' },
+              { text: 'AgentScope', link: 'https://danny4897.github.io/AgentScope/' },
+            ],
+          },
         ],
-        activeMatch: '/ecosystem/|/templates|/ai'
+        activeMatch: '/ecosystem/|/templates'
       },
       {
         text: 'v1.5',
@@ -85,8 +106,15 @@ export default defineConfig({
         collapsed: false,
         items: [
           { text: 'Overview', link: '/ecosystem/' },
-          { text: 'MonadicSharp.AI', link: '/ai' },
           { text: 'Templates', link: '/templates' },
+          { text: 'MonadicSharp.Framework ↗', link: 'https://danny4897.github.io/MonadicSharp.Framework/' },
+          { text: 'MonadicSharp.AI ↗', link: 'https://danny4897.github.io/MonadicSharp.AI/' },
+          { text: 'MonadicSharp.Recovery ↗', link: 'https://danny4897.github.io/MonadicSharp.Recovery/' },
+          { text: 'MonadicSharp.Azure ↗', link: 'https://danny4897.github.io/MonadicSharp.Azure/' },
+          { text: 'MonadicSharp.DI ↗', link: 'https://danny4897.github.io/MonadicSharp.DI/' },
+          { text: 'MonadicLeaf ↗', link: 'https://danny4897.github.io/MonadicLeaf/' },
+          { text: 'MonadicSharp × OpenCode ↗', link: 'https://danny4897.github.io/MonadicSharp-OpenCode/' },
+          { text: 'AgentScope ↗', link: 'https://danny4897.github.io/AgentScope/' },
         ]
       },
     ],

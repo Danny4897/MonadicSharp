@@ -4,7 +4,7 @@ MonadicSharp is a family of focused packages. Start with the core, add only what
 
 ## Packages
 
-### MonadicSharp _(core)_
+### [MonadicSharp](https://danny4897.github.io/MonadicSharp/) _(core)_
 
 The foundation. All other packages depend on it.
 
@@ -16,93 +16,9 @@ Includes: `Result<T>`, `Option<T>`, `Either<L,R>`, `Error`, `Try`, `Unit`, `Pipe
 
 ---
 
-### MonadicSharp.AI
+### [MonadicSharp.Framework](https://danny4897.github.io/MonadicSharp.Framework/) _(meta-package)_
 
-Typed errors for LLM operations. Retry with exponential backoff. Agent result tracing.
-
-```bash
-dotnet add package MonadicSharp.AI
-```
-
-Key types: `AgentResult<T>`, `LlmError`, `TokenBudget`, `CachingAgentWrapper`.
-
----
-
-### MonadicSharp.Recovery
-
-Self-healing pipelines — the **Amber track**. When a step fails, the recovery pipeline attempts to resolve the issue and resume.
-
-```bash
-dotnet add package MonadicSharp.Recovery
-```
-
-Key types: `AmberPipeline<T>`, `RecoveryStrategy`, `CircuitBreaker`.
-
----
-
-### MonadicSharp.Agents
-
-Multi-agent orchestration with built-in circuit breakers, capability constraints, and agent context isolation.
-
-```bash
-dotnet add package MonadicSharp.Agents
-```
-
-Key types: `AgentOrchestrator`, `AgentContext`, `AgentCapability`, `CircuitBreakerAgent`.
-
----
-
-### MonadicSharp.Http
-
-Result-aware HTTP client. Maps `HttpResponseMessage` to `Result<T>` automatically. Typed retry policies.
-
-```bash
-dotnet add package MonadicSharp.Http
-```
-
-Key types: `MonadicHttpClient`, `HttpResultExtensions`.
-
----
-
-### MonadicSharp.Persistence
-
-Result-aware repository and Unit of Work pattern for EF Core 8. Every DB operation returns `Result<T>` — no silent `null` returns.
-
-```bash
-dotnet add package MonadicSharp.Persistence
-```
-
-Key types: `IMonadicRepository<T>`, `MonadicDbContext`, `UnitOfWork`.
-
----
-
-### MonadicSharp.Security
-
-Prompt injection detection. Secret masking in agent outputs. Policy enforcement for AI pipelines.
-
-```bash
-dotnet add package MonadicSharp.Security
-```
-
-Key types: `InjectionDetector`, `SecretMasker`, `SecurityPolicy`.
-
----
-
-### MonadicSharp.Telemetry
-
-OpenTelemetry tracing for agent pipelines. Automatic span creation for `Bind` chains. Error propagation in traces.
-
-```bash
-dotnet add package MonadicSharp.Telemetry
-```
-
-Key types: `MonadicActivitySource`, `PipelineTracer`.
-
----
-
-### MonadicSharp.Framework _(meta-package)_
-
-Installs all packages above in one command.
+Installs all packages above in one command. Enterprise-grade AI agent infrastructure for .NET.
 
 ```bash
 dotnet add package MonadicSharp.Framework
@@ -112,17 +28,99 @@ dotnet add package MonadicSharp.Framework
 Only install what you use. `MonadicSharp.Framework` is convenient for new projects; individual packages keep existing ones lean.
 :::
 
+---
+
+### [MonadicSharp.AI](https://danny4897.github.io/MonadicSharp.AI/)
+
+Typed errors for LLM operations. Retry with exponential backoff. Agent result tracing.
+
+```bash
+dotnet add package MonadicSharp.AI
+```
+
+Key types: `AgentResult<T>`, `AiError`, `RetryResult<T>`, `StreamResult`.
+
+---
+
+### [MonadicSharp.Recovery](https://danny4897.github.io/MonadicSharp.Recovery/)
+
+Self-healing pipelines — Railway-Oriented error recovery with `RescueAsync` and `StartFixBranchAsync`.
+
+```bash
+dotnet add package MonadicSharp.Recovery
+```
+
+Key types: `RescueAsync`, `StartFixBranchAsync`, `IRecoveryTelemetry`.
+
+---
+
+### [MonadicSharp.Azure](https://danny4897.github.io/MonadicSharp.Azure/)
+
+Railway-Oriented Programming for the Azure ecosystem — every SDK call wrapped in `Result<T>`.
+
+```bash
+dotnet add package MonadicSharp.Azure
+```
+
+Covers: Cosmos DB, Service Bus, Blob Storage, Key Vault, Azure OpenAI, Azure Functions.
+
+---
+
+### [MonadicSharp.DI](https://danny4897.github.io/MonadicSharp.DI/)
+
+Lightweight functional mediator for .NET — CQRS aligned with MonadicSharp primitives.
+
+```bash
+dotnet add package MonadicSharp.DI
+```
+
+Key types: `IQueryHandler<Q,T>`, `ICommandHandler<C,T>`, `IPipelineBehavior<R,T>`, `INotification`.
+
+---
+
+## Tooling
+
+### [MonadicLeaf](https://danny4897.github.io/MonadicLeaf/)
+
+Static analysis and Green Score for MonadicSharp codebases. Ensures AI-generated C# code doesn't break in production.
+
+```bash
+dotnet add package MonadicLeaf.Analyzers
+```
+
+Includes: Roslyn analyzers (GC001–GC010), CLI tool, CI integration.
+
+---
+
+### [MonadicSharp × OpenCode](https://danny4897.github.io/MonadicSharp-OpenCode/)
+
+Structural guarantee that AI-generated C# code does not break in production — integrated directly into OpenCode.
+
+Commands: `/forge-analyze`, `/green-check`, `/migrate`.
+
+---
+
+### [AgentScope](https://danny4897.github.io/AgentScope/)
+
+AI agent observability platform for .NET — see every agent, trace every pipeline, catch every failure.
+
+Key features: Pipeline Tracing, Metrics Dashboard, Circuit Breakers, Alerts.
+
+---
+
 ## Dependency graph
 
 ```
 MonadicSharp (core)
+├── MonadicSharp.Framework (meta-package)
 ├── MonadicSharp.AI
 │   └── MonadicSharp.Recovery
-├── MonadicSharp.Agents
-├── MonadicSharp.Http
-├── MonadicSharp.Persistence
-├── MonadicSharp.Security
-└── MonadicSharp.Telemetry
+├── MonadicSharp.Azure
+├── MonadicSharp.DI
+└── Tooling
+    ├── MonadicLeaf (analyzers)
+    ├── MonadicSharp-OpenCode (AI coding)
+    └── AgentScope (observability)
 ```
 
 ## Templates
