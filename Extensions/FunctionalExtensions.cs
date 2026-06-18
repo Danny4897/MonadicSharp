@@ -106,6 +106,63 @@ public static class ResultExtensions
     public static Task<Result<T>> AsTask<T>(this Result<T> result) =>
         Task.FromResult(result);
 
+#if NET10_0_OR_GREATER
+    /// <summary>
+    /// Zero-allocation Partition overload for C# 14 / .NET 10+.
+    /// Prefer over <see cref="Partition{T}(IEnumerable{Result{T}})"/> on batch LLM hot paths
+    /// to eliminate heap allocations. Optimized for Runtime Async on .NET 11+.
+    /// </summary>
+    public static (T[] Successes, Error[] Failures) Partition<T>(this ReadOnlySpan<Result<T>> results)
+    {
+        if (results.IsEmpty)
+            return ([], []);
+
+        int successCount = 0;
+        for (int i = 0; i < results.Length; i++)
+            if (results[i].IsSuccess) successCount++;
+
+        var successes = new T[successCount];
+        var failures = new Error[results.Length - successCount];
+        int si = 0, fi = 0;
+        for (int i = 0; i < results.Length; i++)
+        {
+            if (results[i].IsSuccess) successes[si++] = results[i].Value;
+            else failures[fi++] = results[i].Error;
+        }
+        return (successes, failures);
+    }
+
+    /// <summary>
+    /// Zero-allocation Sequence overload for C# 14 / .NET 10+.
+    /// Returns <c>Result&lt;T[]&gt;</c> collecting all values on success, or the combined
+    /// error of all failing items on the first failure. Prefer over the IEnumerable overload
+    /// on batch LLM hot paths. Optimized for Runtime Async on .NET 11+.
+    /// </summary>
+    public static Result<T[]> Sequence<T>(this ReadOnlySpan<Result<T>> results)
+    {
+        if (results.IsEmpty)
+            return Result<T[]>.Success([]);
+
+        var values = new T[results.Length];
+        for (int i = 0; i < results.Length; i++)
+        {
+            if (results[i].IsSuccess)
+            {
+                values[i] = results[i].Value;
+                continue;
+            }
+
+            // Collect all remaining failures for richer diagnostics
+            var errors = new List<Error>(results.Length - i);
+            for (int j = i; j < results.Length; j++)
+                if (results[j].IsFailure) errors.Add(results[j].Error);
+
+            return Result<T[]>.Failure(errors.Count == 1 ? errors[0] : Error.Combine([.. errors]));
+        }
+        return Result<T[]>.Success(values);
+    }
+#endif
+
     /// <summary>
     /// Handles success case in a Result
     /// </summary>

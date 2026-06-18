@@ -4,14 +4,34 @@
 [![NuGet Downloads](https://img.shields.io/nuget/dt/MonadicSharp.svg)](https://www.nuget.org/packages/MonadicSharp/)
 [![CI](https://github.com/Danny4897/MonadicSharp/actions/workflows/ci.yml/badge.svg)](https://github.com/Danny4897/MonadicSharp/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![.NET](https://img.shields.io/badge/.NET-8.0-purple.svg)](https://dotnet.microsoft.com/)
+[![.NET](https://img.shields.io/badge/.NET-8%20%7C%209%20%7C%2010-purple.svg)](https://dotnet.microsoft.com/)
+[![C#](https://img.shields.io/badge/C%23-14-blue.svg)](https://learn.microsoft.com/en-us/dotnet/csharp/)
 [![dev.to article](https://img.shields.io/badge/dev.to-article-black.svg)](https://dev.to/daniele_frau/railway-oriented-programming-in-c-without-languageext-4noe)
 
 Railway-Oriented Programming for C#. Replace exception-driven control flow with composable, explicit error handling — without LanguageExt.
+Targets **net8.0 / net9.0 / net10.0** with **C# 14** and zero-allocation Span overloads on .NET 10+.
 
 ```bash
-dotnet add package MonadicSharp
+dotnet add package MonadicSharp                   # core (Result, Option, Either, pipelines)
+dotnet add package MonadicSharp.Serialization     # STJ converters — {"ok":true,"value":...}
+dotnet add package MonadicSharp.Interop           # HttpClient + ASP.NET Core minimal API bridges
+dotnet add package MonadicSharp.Query             # LINQ-style operators on IEnumerable<Result<T>>
+dotnet add package MonadicSharp.Unions            # Union2/3 tagged unions + C# 15 DU prep
+dotnet add package MonadicSharp.Aspire            # Aspire 13 health checks + Green Score telemetry
 ```
+
+---
+
+## Ecosystem
+
+| Package | Purpose | Target |
+|---|---|---|
+| `MonadicSharp` | Core — Result, Option, Either, Error, pipelines | net8/9/10, C# 14 |
+| `MonadicSharp.Serialization` | AOT-safe STJ converters | net8/9/10 |
+| `MonadicSharp.Interop` | HTTP / ASP.NET Core bridge (C# 14 extension members on .NET 10) | net8/9/10 |
+| `MonadicSharp.Query` | Batch reconciliation, SuccessRate, BestOf | net8/9/10 |
+| `MonadicSharp.Unions` | Union2/Union3 + ToResult/ToOption bridges (C# 15 DU prep) | net8/9/10 |
+| `MonadicSharp.Aspire` | CircuitBreaker health checks + Green Score OpenTelemetry meter | net8/9/10 |
 
 ---
 

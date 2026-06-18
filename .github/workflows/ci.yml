@@ -2,34 +2,46 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, 'claude/**' ]
   pull_request:
     branches: [ main ]
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dotnet: ['8.0.x', '9.0.x', '10.0.x']
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup .NET
+      - name: Setup .NET ${{ matrix.dotnet }}
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: ${{ matrix.dotnet }}
 
       - name: Restore
-        run: dotnet restore tests/MonadicSharp.Tests/MonadicSharp.Tests.csproj
+        run: dotnet restore MonadicSharp.sln
 
       - name: Build
-        run: dotnet build tests/MonadicSharp.Tests/MonadicSharp.Tests.csproj --configuration Release --no-restore
+        run: dotnet build MonadicSharp.sln --configuration Release --no-restore
 
-      - name: Test
-        run: dotnet test tests/MonadicSharp.Tests/MonadicSharp.Tests.csproj --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results.trx"
+      - name: Test (core)
+        run: dotnet test tests/MonadicSharp.Tests/MonadicSharp.Tests.csproj --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results-core-${{ matrix.dotnet }}.trx"
+
+      - name: Test (Serialization)
+        run: dotnet test tests/MonadicSharp.Serialization.Tests/MonadicSharp.Serialization.Tests.csproj --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results-serialization-${{ matrix.dotnet }}.trx"
+
+      - name: Test (Interop)
+        run: dotnet test tests/MonadicSharp.Interop.Tests/MonadicSharp.Interop.Tests.csproj --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results-interop-${{ matrix.dotnet }}.trx"
+
+      - name: Test (Query)
+        run: dotnet test tests/MonadicSharp.Query.Tests/MonadicSharp.Query.Tests.csproj --configuration Release --no-build --verbosity normal --logger "trx;LogFileName=test-results-query-${{ matrix.dotnet }}.trx"
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: test-results
+          name: test-results-${{ matrix.dotnet }}
           path: '**/TestResults/*.trx'
