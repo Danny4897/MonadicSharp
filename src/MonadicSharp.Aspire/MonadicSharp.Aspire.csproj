@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0;net10.0;net11.0</TargetFrameworks>
     <LangVersion>14</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>MonadicSharp.Aspire</RootNamespace>
 
     <PackageId>MonadicSharp.Aspire</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.1.0</PackageVersion>
     <Authors>Danny4897</Authors>
     <Description>Aspire 13 integration for MonadicSharp: CircuitBreaker health checks, Green Score telemetry as custom OpenTelemetry metrics, and PipelineAsync trace correlation.</Description>
     <PackageTags>monadic-sharp;aspire;health-checks;opentelemetry;otel;green-score;circuit-breaker;pipeline</PackageTags>
@@ -21,6 +21,10 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net11.0'">
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

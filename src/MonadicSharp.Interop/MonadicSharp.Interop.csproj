@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0;net10.0;net11.0</TargetFrameworks>
     <LangVersion>14</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>MonadicSharp.Interop</RootNamespace>
 
     <PackageId>MonadicSharp.Interop</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.1.0</PackageVersion>
     <Authors>Danny4897</Authors>
     <Description>Bridge MonadicSharp primitives with external SDKs — HttpResponseMessage, IResult (ASP.NET Core minimal APIs), and more. Uses C# 14 extension members on .NET 10+ for zero-wrapper integration.</Description>
     <PackageTags>monadic-sharp;railway-oriented-programming;interop;http;aspnetcore;result;bridge</PackageTags>
@@ -21,6 +21,10 @@
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net11.0'">
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>

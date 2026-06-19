@@ -6,6 +6,36 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [Unreleased] — v1.7.0
+
+### .NET 11 / C# 15 Preview Additions
+
+#### MonadicSharp (core)
+- **`IAsyncEnumerable<Result<T>>` streaming operators** (`AsyncStreamExtensions`): `MapEach`, `BindEach`, `BindEachAsync`, `SuccessValues`, `TakeUntilError`, `CollectAsync`, `CollectValuesAsync`, `TraverseAsync` — all gated on `#if NET11_0_OR_GREATER`
+- **`ValueTask<Result<T>>` operators** (`ValueTaskExtensions`): `Map`, `Bind`, `Do`, `DoAsync`, `OrElse`, `AsValueTask` — zero-allocation Runtime Async overloads
+- **`ValueTask<Option<T>>` operators**: `Map`, `Bind`, `ToResult`, `AsValueTask`
+- **Multi-target**: `net11.0` added; `LangVersion=preview` on .NET 11 target
+
+#### MonadicSharp.Unions
+- **`Union4<T1,T2,T3,T4>`**: completes the union type set (2–4 cases)
+- **`UnionAsyncExtensions`**: `MatchAsync` with `Task<TOut>` and (on .NET 11+) `ValueTask<TOut>` overloads for Union2/3/4
+- **`NativeDUMigration.cs`**: detailed migration guide and expected C# 15 `union` syntax for replacing bridge types when DUs ship
+
+#### MonadicSharp.Query
+- **`AsyncQueryExtensions`** (NET 11+): `PartitionMapAsync`, `RequireSuccessRateAsync`, `PartitionAsync`, `SuccessValuesAsync`, `BestOfAsync` — streaming LLM quality gates
+
+#### MonadicSharp.Interop
+- **`SseExtensions`** (NET 11+): `GetSseStream<T>`, `PostSseStream<TRequest,T>`, `SendSseStream<T>` — stream LLM Server-Sent Events as `IAsyncEnumerable<Result<T>>` with per-event error wrapping
+
+#### MonadicSharp.Aspire
+- **`PipelineActivitySource`**: OpenTelemetry `ActivitySource` for distributed pipeline tracing; `TraceAsync<T>` wraps `Task<Result<T>>` and `ValueTask<Result<T>>` (NET 11+) in a structured span with error tagging
+
+### Infrastructure
+- CI matrix extended to include .NET 11 (`11.0.x`) with `continue-on-error: true` (experimental)
+- All packages now target `net8.0;net9.0;net10.0;net11.0`
+
+---
+
 ## [Unreleased] — v1.6.0
 
 ### Added — Core (`MonadicSharp`)

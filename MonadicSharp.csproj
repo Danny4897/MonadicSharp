@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0;net10.0;net11.0</TargetFrameworks>
     <LangVersion>14</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -9,7 +9,7 @@
 
     <!-- NuGet Package Properties -->
     <PackageId>MonadicSharp</PackageId>
-    <PackageVersion>1.6.0</PackageVersion>
+    <PackageVersion>1.7.0</PackageVersion>
     <Authors>Danny4897</Authors>
     <Description>A modern functional programming library for C# featuring Result&lt;T&gt;, Option&lt;T&gt;, Railway-Oriented Programming, and fluent pipeline composition. Build robust applications with elegant error handling and monadic patterns.</Description>
     <PackageTags>functional-programming;railway-oriented-programming;result;option;maybe;monad;pipeline;composition;error-handling;monadic;sharp</PackageTags>
@@ -32,6 +32,10 @@ v1.1.0: Added Either&lt;TLeft, TRight&gt; type for representing two alternative 
     <!-- Documentation -->
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net11.0'">
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />
@@ -60,6 +64,10 @@ v1.1.0: Added Either&lt;TLeft, TRight&gt; type for representing two alternative 
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <PackageReference Include="System.Text.Json" Version="10.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net11.0'">
     <PackageReference Include="System.Text.Json" Version="10.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0" />
   </ItemGroup>

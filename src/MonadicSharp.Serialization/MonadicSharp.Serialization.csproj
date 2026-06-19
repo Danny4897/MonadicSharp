@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+    <TargetFrameworks>net8.0;net9.0;net10.0;net11.0</TargetFrameworks>
     <LangVersion>14</LangVersion>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>MonadicSharp.Serialization</RootNamespace>
 
     <PackageId>MonadicSharp.Serialization</PackageId>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.1.0</PackageVersion>
     <Authors>Danny4897</Authors>
     <Description>AOT-safe System.Text.Json converters for MonadicSharp primitives (Result&lt;T&gt;, Option&lt;T&gt;, Either). Registers via JsonSerializerOptions — no global state.</Description>
     <PackageTags>monadic-sharp;railway-oriented-programming;json;serialization;aot;result;option</PackageTags>
@@ -23,6 +23,10 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net11.0'">
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\MonadicSharp.csproj" />
   </ItemGroup>
@@ -34,6 +38,9 @@
     <PackageReference Include="System.Text.Json" Version="9.0.0" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <PackageReference Include="System.Text.Json" Version="10.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net11.0'">
     <PackageReference Include="System.Text.Json" Version="10.0.0" />
   </ItemGroup>
 

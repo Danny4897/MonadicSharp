@@ -10,8 +10,14 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
-        dotnet: ['8.0.x', '9.0.x', '10.0.x']
+        dotnet: ['8.0.x', '9.0.x', '10.0.x', '11.0.x']
+        include:
+          - dotnet: '11.0.x'
+            experimental: true
+      exclude: []
+    continue-on-error: ${{ matrix.experimental == true }}
 
     steps:
       - uses: actions/checkout@v4
