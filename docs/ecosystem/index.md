@@ -108,6 +108,60 @@ Key features: Pipeline Tracing, Metrics Dashboard, Circuit Breakers, Alerts.
 
 ---
 
+## Klexir Ecosystem
+
+Not MonadicSharp packages — a separate research project *built on* MonadicSharp's `Result<T>`, exploring systems-programming concepts (event buses, actors, workflow engines, storage engines, bytecode VMs, and a real programming language) in .NET. Public, not yet on NuGet.
+
+### [Klexir.Lang](https://danny4897.github.io/Klexir.Lang/)
+
+A real, runnable language — records, unions, an `Option`/`Result` railway, lists — with a CLI and VS Code syntax highlighting. `KlexirInterop` bridges its values straight into real `MonadicSharp.Option<T>`/`Result<T>`.
+
+```bash
+dotnet run --project src/Klexir.Cli -- run file.klx
+```
+
+---
+
+### [Klexir.EventFlow](https://danny4897.github.io/Klexir.EventFlow/)
+
+Strongly typed, in-process event bus — resilience, idempotency, dead-lettering and tracing built in.
+
+Key types: `InMemoryEventBus`, `IEventHandler<T>`, `EventBusResilienceOptions`.
+
+---
+
+### [Klexir.Actor](https://danny4897.github.io/Klexir.Actor/)
+
+`Channel<T>`-backed actor primitives — serialized state transitions without locks, tell/ask messaging, supervision.
+
+Key types: `Actor<TMessage, TState>`, `InMemoryActorRef`, `SupervisionOptions`.
+
+---
+
+### [Klexir.Workflow](https://danny4897.github.io/Klexir.Workflow/)
+
+Durable workflow and saga orchestration — a fluent step builder, checkpointing, crash resumption.
+
+Key types: `Workflow.Define`, `WorkflowEngine`, `FileWorkflowStore`.
+
+---
+
+### [Klexir.Engine](https://danny4897.github.io/Klexir.Engine/)
+
+Storage engine internals from the file up — pages, a buffer pool, a B-Tree, a write-ahead log, 2PL transactions.
+
+Key types: `FilePageStore`, `BufferPool`, `PagedBTree`, `WalRecovery`.
+
+---
+
+### [Klexir.Runtime](https://danny4897.github.io/Klexir.Runtime/)
+
+A small stack-based bytecode VM — the interpretation loop, a call stack, a real garbage collector, made explicit.
+
+Key types: `BytecodeBuilder`, `KlexirVm`.
+
+---
+
 ## Dependency graph
 
 ```
@@ -121,6 +175,14 @@ MonadicSharp (core)
     ├── MonadicLeaf (analyzers)
     ├── MonadicSharp-OpenCode (AI coding)
     └── AgentScope (observability)
+
+Klexir Ecosystem (separate project, built on MonadicSharp)
+├── Klexir.Lang       (language — Option/Result railway inside the language itself)
+├── Klexir.EventFlow  (event bus)
+├── Klexir.Actor      (actor model)
+├── Klexir.Workflow   (saga orchestration)
+├── Klexir.Engine     (storage engine)
+└── Klexir.Runtime    (bytecode VM)
 ```
 
 ## Templates
