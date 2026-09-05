@@ -1,3 +1,6 @@
+# Claude Code internal worktrees (created by Claude Code agent isolation)
+.claude/worktrees/
+
 ## .NET / C# standard ignores
 
 # Build outputs

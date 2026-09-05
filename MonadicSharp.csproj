@@ -1,12 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>    <Nullable>enable</Nullable>
+    <TargetFrameworks>net8.0;net9.0;net10.0;net11.0</TargetFrameworks>
+    <LangVersion>14</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
     <RootNamespace>MonadicSharp</RootNamespace>
-    
+
     <!-- NuGet Package Properties -->
-    <PackageId>MonadicSharp</PackageId>    <PackageVersion>1.5.0</PackageVersion>
+    <PackageId>MonadicSharp</PackageId>
+    <PackageVersion>1.7.0</PackageVersion>
     <Authors>Danny4897</Authors>
     <Description>A modern functional programming library for C# featuring Result&lt;T&gt;, Option&lt;T&gt;, Railway-Oriented Programming, and fluent pipeline composition. Build robust applications with elegant error handling and monadic patterns.</Description>
     <PackageTags>functional-programming;railway-oriented-programming;result;option;maybe;monad;pipeline;composition;error-handling;monadic;sharp</PackageTags>
@@ -19,7 +22,8 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageReadmeFile>README.md</PackageReadmeFile>
 
-        <PackageReleaseNotes>v1.5.0: Added Partition&lt;T&gt; extension, MonadicException typed exception carrier, Error.ToException() helper, and global xUnit fix for Azure SDK compatibility
+        <PackageReleaseNotes>v1.6.0: Multi-target net8/9/10, C# 14 LangVersion, Span&lt;T&gt; zero-allocation overloads for Partition/Sequence on .NET 10+
+v1.5.0: Added Partition&lt;T&gt; extension, MonadicException typed exception carrier, Error.ToException() helper, and global xUnit fix for Azure SDK compatibility
 v1.4.0: Added comprehensive xUnit test suite, GitHub Actions CI/CD, CHANGELOG, usage examples, and fixed package dependencies
 v1.3.0: Complete rebranding from FunctionalSharp to MonadicSharp - Templates, documentation, and package naming fully unified
 v1.2.0: Changed namespace from FunctionalSharp to MonadicSharp to match NuGet package name
@@ -28,6 +32,10 @@ v1.1.0: Added Either&lt;TLeft, TRight&gt; type for representing two alternative 
     <!-- Documentation -->
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net11.0'">
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />
@@ -47,9 +55,21 @@ v1.1.0: Added Either&lt;TLeft, TRight&gt; type for representing two alternative 
     <None Remove="RAG_Assistant/**/*" />
   </ItemGroup>
   
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
     <PackageReference Include="System.Text.Json" Version="8.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.2" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
+    <PackageReference Include="System.Text.Json" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <PackageReference Include="System.Text.Json" Version="10.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net11.0'">
+    <PackageReference Include="System.Text.Json" Version="10.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0" />
   </ItemGroup>
 
 </Project>

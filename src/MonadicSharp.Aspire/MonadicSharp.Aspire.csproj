@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net9.0;net10.0;net11.0</TargetFrameworks>
+    <LangVersion>14</LangVersion>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>MonadicSharp.Aspire</RootNamespace>
+
+    <PackageId>MonadicSharp.Aspire</PackageId>
+    <PackageVersion>1.1.0</PackageVersion>
+    <Authors>Danny4897</Authors>
+    <Description>Aspire 13 integration for MonadicSharp: CircuitBreaker health checks, Green Score telemetry as custom OpenTelemetry metrics, and PipelineAsync trace correlation.</Description>
+    <PackageTags>monadic-sharp;aspire;health-checks;opentelemetry;otel;green-score;circuit-breaker;pipeline</PackageTags>
+    <PackageProjectUrl>https://github.com/Danny4897/MonadicSharp</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Danny4897/MonadicSharp</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net11.0'">
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\MonadicSharp.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="8.0.0" />
+    <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>
